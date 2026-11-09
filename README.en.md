@@ -4,14 +4,14 @@ Budgeted context compression and bounded history recall for DeepSeek Harness. On
 
 This package is developed and versioned independently of Harness. It uses the published Harness APIs and currently targets **DSH 0.2.2-rc.1** on Node 24.9 or later. It does not patch the agent loop or provider serialization.
 
-See the [validation report](docs/validation.md) for measured savings and costs, and [distribution guide](docs/distribution.md) for npm and community markets. [中文首页](README.md)。
+The latest paired live test does **not** meet the complete-task savings goal: version 0.1.1 preserved 13/13 answer fields in both replications, but averaged 7.27% more input and 83.70% longer active-turn time. Warm followup input fell 60.24%; that partial saving did not offset earlier work. See the [complete 3080/3082 comparison](docs/ab-3080-3082.zh.md), [historical validation](docs/validation.md) and [distribution guide](docs/distribution.md). [中文首页](README.md)。
 
 ## Install directly from GitHub
 
 The tested prebuilt package is stored in this public repository. Install it into the profile you use:
 
 ```sh
-dsh plugin --profile web add https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.0.tgz
+dsh plugin --profile web add https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.1.tgz
 ```
 
 See the [installation guide](docs/installation.zh.md) for profile selection, configuration, verification and removal. The supported GitHub installation uses the prebuilt archive; the repository's automatic source-build lifecycle is not an installation prerequisite. npm and community-market publishing are deferred.
@@ -19,6 +19,8 @@ See the [installation guide](docs/installation.zh.md) for profile selection, con
 The bundle disables the profile's `compaction-basic` row and selects the budgeted provider with the recall tools. Base-backed Web, headless, SDK and ACP profiles provide the required services. HMR applies supported changes live; otherwise restart that profile. Desktop owns a separate profile: use the Desktop application's own plugin manager.
 
 Disable or remove this bundle to restore the underlying profile's basic compactor. Do not enable both providers in one context. Other plugins and user patches may override these selections.
+
+Presets may mount an additional isolated Basic provider. The bundle replaces the profile's top-level row and does not rewrite arbitrary presets; disable automatic Basic in the active preset, or use your own composition without that compaction group, to ensure a single automatic provider. Service isolation alone does not filter the top-level provider's event hooks. See the installation guide.
 
 ## Budgeted compression
 
@@ -43,8 +45,10 @@ Ordinary Basic compaction options remain available. The default recent-history r
 
 ## History tools
 
-- `context_search` searches literal text in earlier events of the calling Session and returns bounded snippets, scan coverage and a continuation cursor.
-- `context_read` reads an inclusive original event range, returning bounded text records and a continuation cursor when needed.
+- `context_search` searches literal text in earlier events of the calling Session. Omit sequence limits to search all earlier text. Hits include bounded excerpts and `read` arguments for direct original-text retrieval; incomplete pages retain continuation cursors.
+- `context_read` reads an inclusive event range or a search hit's single-event `part`/`offset` location. Parts index visible text; offsets count UTF-16 code units at complete Unicode scalar boundaries.
+
+The defaults inspect up to 1,048,576 text code units and 256 events per search page, with excerpts up to 2048 code units. Complete output remains capped at 2048 heuristic tokens and 8192 UTF-8 bytes. Separate matches in one block remain reachable when paging.
 
 The tools exclude the executing step, other Sessions, reasoning blocks and log-only records from their model-facing text. Read cursors retain the position inside oversized records so paging does not discard their middle. Cursors are Session-specific. Original data that a tool already spilled outside the Session still depends on that spill's availability.
 

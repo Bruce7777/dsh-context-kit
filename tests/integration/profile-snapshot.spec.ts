@@ -17,7 +17,7 @@ import { prepareSessionSnapshotFixtureForComparison } from '@deepseek-ai/dsh-llm
 const runFile = promisify(execFile)
 const require = createRequire(import.meta.url)
 const fixtureDir = fileURLToPath(new URL('../snapshots/context-budget-recall/', import.meta.url))
-const fixture = join(fixtureDir, 'session.v4.jsonl')
+const fixture = join(fixtureDir, 'session.v5.jsonl')
 const task = 'Inspect the twenty build records in order, then recover the exact artifact-tag from the original archived record using context_search and context_read. Do not guess or regenerate it. Preserve config/production.yml. Answer only with the recovered tag.'
 
 async function filesUnder(path: string): Promise<string[]> {

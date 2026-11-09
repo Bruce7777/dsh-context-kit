@@ -26,10 +26,12 @@ export function apply(ctx: Context, config: Config = {}): void {
   const limits = resolveConfig(config)
   ctx.tools.register(defineTool({
     name: 'context_read',
-    description: "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+    description: 'Read earlier originals in this session. Use hit.read or summary seqs; end=start. part indexes text; offset is UTF-16. Continue cursor with same seqs.',
     parameters: {
       startSeq: { type: 'integer', required: true },
       endSeq: { type: 'integer' },
+      part: { type: 'integer' },
+      offset: { type: 'integer' },
       cursor: { type: 'string' },
     },
     output,
@@ -39,7 +41,7 @@ export function apply(ctx: Context, config: Config = {}): void {
   }))
   ctx.tools.register(defineTool({
     name: 'context_search',
-    description: "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+    description: 'Find case-sensitive text in earlier session originals before guessing. Omit seqs for all history. Expand hit.read; complete:false: continue cursor with same query.',
     parameters: {
       query: { type: 'string', required: true },
       startSeq: { type: 'integer' },

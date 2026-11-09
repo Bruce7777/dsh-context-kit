@@ -1,5 +1,7 @@
 # Validation, 2026-11-08
 
+This page retains version 0.1.0 evidence. For version 0.1.1, use the [two-instance live comparison](ab-3080-3082.zh.md) and [per-turn provider usage](ab-3080-3082.json). The latest complete audit task preserved accuracy but increased input by 7.27% and active-turn latency by 83.70% across two replications; it does not support an overall savings claim.
+
 The plugins reduce long-session input, but this validation does **not** establish equal accuracy, zero overhead, or lower bills for every workload. The initial live activation reduced tokens while increasing cost. This result is retained below rather than reported as a cost saving.
 
 The independent package targets published DSH **0.2.2-rc.1**. Upstream was fetched at `fcc0ad4621`. No Harness production code changes are required. Measurements used Node **v24.15.0**, macOS x64. Aggregates are in [measurements.json](measurements.json); private writing content, Session IDs and credentials are excluded.

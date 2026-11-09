@@ -5,7 +5,7 @@ import BasicCompactionEngine from '@deepseek-ai/dsh-compaction-basic'
 import { toolPairingBalancedBefore } from '@deepseek-ai/dsh-compaction'
 import type { CompactionResult, CompactionTrigger } from '@deepseek-ai/dsh-compaction'
 import { LlmError, createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { ContentBlock, Message, TokenUsage, ToolSchema, ToolResultMessage } from '@deepseek-ai/dsh-llm'
+import type { ContentBlock, Message, ReasoningEffortId, TokenUsage, ToolSchema, ToolResultMessage } from '@deepseek-ai/dsh-llm'
 import type { Agent } from '@deepseek-ai/dsh-agent'
 import { appendPluginRecord, type Session, type SessionSeq } from '@deepseek-ai/dsh-session'
 import type { ProjectionHandle } from '@deepseek-ai/dsh-session-projection'
@@ -19,6 +19,8 @@ declare module '@deepseek-ai/dsh-session' {
       summaryTargetTokens: number
       startSeq: SessionSeq | null
       endSeq: SessionSeq | null
+      /** Main-request effort explicitly inherited by a same-route summary call. */
+      reasoningEffort?: ReasoningEffortId
     }
   }
 }
@@ -150,13 +152,27 @@ export class BudgetedCompactionEngine extends BasicCompactionEngine {
         && node.messageId !== null && messageIds.has(node.messageId)).map(node => node.seq)
     const instruction = `Target at most ${this.budget.summaryTargetTokens} summary text tokens. Preserve explicit user requirements, corrections, unresolved failures, pending work and exact identifiers needed to continue; omit replaceable bulk output.`
     const hint = createUserMessage({ source: { kind: 'user' }, content: [{ type: 'text', text: instruction }] })
+    const previous = agent.session.requestHeader()?.config
     const first = seqs.reduce<SessionSeq | null>((value, seq) => value === null || seq < value ? seq : value, null)
     const last = seqs.reduce<SessionSeq | null>((value, seq) => value === null || seq > value ? seq : value, null)
     signal?.throwIfAborted()
-    appendPluginRecord(agent.session, 'plugin:dsh-context-kit/summary-policy', {
-      instruction, summaryTargetTokens: this.budget.summaryTargetTokens, startSeq: first, endSeq: last,
-    })
-    const result = await super.summarize({ ...input, messages: [...input.messages, hint] }, agent, signal)
+    const dispose = this.ctx.on('llm/stream', (options, next) => {
+      if (options.purpose !== 'compaction' || options.sessionId !== agent.session.id
+        || !options.messages.includes(hint)) return next()
+      dispose()
+      signal?.throwIfAborted()
+      const reasoningEffort = previous?.provider === options.provider && previous.model === options.model
+        ? previous.reasoningEffort : undefined
+      if (reasoningEffort !== undefined) options.reasoningEffort = reasoningEffort
+      appendPluginRecord(agent.session, 'plugin:dsh-context-kit/summary-policy', {
+        instruction, summaryTargetTokens: this.budget.summaryTargetTokens, startSeq: first, endSeq: last,
+        ...reasoningEffort === undefined ? {} : { reasoningEffort },
+      })
+      return next()
+    }, { prepend: true })
+    let result: SummaryResult
+    try { result = await super.summarize({ ...input, messages: [...input.messages, hint] }, agent, signal) }
+    finally { dispose() }
     signal?.throwIfAborted()
     if (first === null || last === null) return result
     return { ...result, summary: [...result.summary, { type: 'text', text:

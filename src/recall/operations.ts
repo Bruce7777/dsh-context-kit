@@ -14,6 +14,10 @@ import type { RecallPosition } from './cursor.ts'
 export interface ReadArgs {
   startSeq: number
   endSeq?: number
+  /** Zero-based visible text part, restricted to a single-event read. */
+  part?: number
+  /** UTF-16 code-unit position at a Unicode scalar boundary within the part. */
+  offset?: number
   cursor?: string
 }
 
@@ -32,6 +36,8 @@ interface TranscriptRecord {
   readonly offset: number
   readonly text: string
   readonly isError?: boolean
+  readonly read?: { readonly startSeq: number; readonly part: number; readonly offset: number }
+  readonly truncated?: true
 }
 
 type TranscriptMessage = Extract<Message, { readonly role: 'user' | 'assistant' | 'tool' }>
@@ -49,6 +55,7 @@ interface Call {
   readonly events: readonly SessionEvent[]
   readonly start: RecallPosition
   readonly fits: (value: Page) => boolean
+  readonly directPosition: boolean
 }
 
 function integer(value: number, field: string): number {
@@ -76,14 +83,23 @@ async function callFor(
   const owner = agent.session.id
   const queryHash = fingerprint(query)
   let start: RecallPosition = { mode, owner, query: queryHash, from, to, seq: from, part: 0, offset: 0 }
+  const directPosition = 'part' in args || 'offset' in args
+  if (directPosition) {
+    if (args.cursor !== undefined || from !== to) throw invalidPosition()
+    const location = args as ReadArgs
+    const part = location.part ?? 0
+    const offset = location.offset ?? 0
+    if (![part, offset].every(value => Number.isSafeInteger(value) && value >= 0)) throw invalidPosition()
+    start = { ...start, part, offset }
+  }
   if (args.cursor !== undefined) {
     start = decodeCursor(args.cursor)
     if (start.owner !== owner || start.mode !== mode || start.query !== queryHash
-      || start.from !== from || (args.endSeq !== undefined && start.to !== to)
+      || (args.startSeq !== undefined && start.from !== from) || (args.endSeq !== undefined && start.to !== to)
       || (mode === 'read' && start.to !== to)) throw invalidCursor()
   }
   if (start.from > start.to || start.to >= boundary) {
-    throw new HarnessError('Context ranges must precede the step making this call.', 'CONTEXT_RECALL_INVALID_RANGE')
+    throw new HarnessError(`Available original seqs: 0–${boundary - 1}; the current step is excluded. For context_search, omit startSeq/endSeq to search all earlier text.`, 'CONTEXT_RECALL_INVALID_RANGE')
   }
   const message = createToolResultMessage({ callId: exec.callId, isError: false, content: [] })
   // Accepted tool calls may finish after registration withdrawal. This estimator
@@ -95,6 +111,7 @@ async function callFor(
   return {
     events: snapshot.events,
     start,
+    directPosition,
     fits: (value) => {
       const text = JSON.stringify(value)
       const rendered: ToolResultMessage = { ...message, content: [{ type: 'text', text }] }
@@ -159,12 +176,13 @@ function nextEvent(position: RecallPosition): RecallPosition | null {
   return position.seq === position.to ? null : { ...position, seq: position.seq + 1, part: 0, offset: 0 }
 }
 
-function assertPosition(position: RecallPosition, segments: readonly string[]): void {
-  if (position.part > segments.length) throw invalidCursor()
+function assertPosition(position: RecallPosition, segments: readonly string[], direct = false): void {
+  const failure = direct ? invalidPosition : invalidCursor
+  if (position.part > segments.length || (direct && position.part === segments.length)) throw failure()
   const text = segments[position.part]
   if ((text === undefined && position.offset !== 0)
     || (text !== undefined && (position.offset > text.length || boundaryAt(text, position.offset) !== position.offset))) {
-    throw invalidCursor()
+    throw failure()
   }
 }
 
@@ -184,7 +202,7 @@ function eventFor(events: readonly SessionEvent[], position: RecallPosition): Se
 /**
  * Read original visible text, retaining a continuation even inside one large block.
  * @param ctx - services owning the caller and message estimator.
- * @param args - inclusive original range and optional cursor.
+ * @param args - inclusive original range, optional single-event UTF-16 position, or continuation.
  * @param exec - agent-bound tool invocation.
  * @param limits - complete-result and per-call scan budgets.
  * @returns bounded JSON text with exact event references and coverage.
@@ -200,9 +218,12 @@ export async function readContext(ctx: Context, args: ReadArgs, exec: ToolRunCon
     const event = eventFor(call.events, position)
     scannedEvents += 1
     const message = visible(event)
-    if (message === null) { position = nextEvent(position); continue }
+    if (message === null) {
+      if (call.directPosition) throw invalidPosition()
+      position = nextEvent(position); continue
+    }
     const segments = pieces(message)
-    assertPosition(position, segments)
+    assertPosition(position, segments, call.directPosition)
     while (position.part < segments.length) {
       const text = segments[position.part] ?? ''
       if (text.length === 0) { position = { ...position, part: position.part + 1, offset: 0 }; continue }
@@ -242,7 +263,7 @@ export async function readContext(ctx: Context, args: ReadArgs, exec: ToolRunCon
  * @param args - nonempty case-sensitive literal query and optional range/cursor.
  * @param exec - agent-bound tool invocation.
  * @param limits - complete-result and per-call scan budgets.
- * @returns bounded JSON snippets with a continuation for unscanned history.
+ * @returns bounded JSON line excerpts, exact read arguments, and a continuation for unreturned matches or unscanned history.
  */
 export async function searchContext(ctx: Context, args: SearchArgs, exec: ToolRunContext, limits: RecallConfig): Promise<string> {
   if (args.query.trim().length === 0 || args.query.length > limits.maxQueryCharacters) {
@@ -270,29 +291,49 @@ export async function searchContext(ctx: Context, args: SearchArgs, exec: ToolRu
         return JSON.stringify(result)
       }
       const window = text.slice(position.offset, end)
-      const match = window.indexOf(args.query)
       const scanned = end - position.offset
-      if (match >= 0) {
-        const start = boundaryAt(text, position.offset + match)
-        const snippetEnd = boundaryAt(text, Math.min(end, start + limits.snippetCharacters,
+      const nextWindow = end < text.length
+        ? { ...position, offset: boundaryAt(text, Math.max(position.offset + 1, end - args.query.length + 1)) }
+        : position.part + 1 === segments.length ? nextEvent(position) : { ...position, part: position.part + 1, offset: 0 }
+      let match = window.indexOf(args.query)
+      while (match >= 0) {
+        exec.signal.throwIfAborted()
+        const selected = position
+        const matchOffset = selected.offset + match
+        const lineStart = selected.offset + (match === 0 ? -1 : window.lastIndexOf('\n', match - 1)) + 1
+        const start = boundaryAt(text, matchOffset - lineStart <= limits.snippetCharacters / 4 ? lineStart : matchOffset)
+        const newline = window.indexOf('\n', match + args.query.length)
+        const lineEnd = newline < 0 ? end : selected.offset + newline
+        const snippetEnd = boundaryAt(text, Math.min(lineEnd, start + limits.snippetCharacters,
           start + limits.maxOutputBytes, start + limits.maxOutputTokens * 4))
-        let record = recordFor(event, message, position.part, start, text.slice(start, snippetEnd))
-        const next = end < text.length ? { ...position, offset: Math.max(position.offset + 1, end - args.query.length + 1) }
-          : position.part + 1 === segments.length ? nextEvent(position) : { ...position, part: position.part + 1, offset: 0 }
-        if (records.length === 0 && !call.fits(page(call.start, [record], scannedEvents, scannedCharacters + scanned, next))) {
-          const selected = position
-          const selectedEnd = fittingEnd(text, start, snippetEnd, proposed => {
-            const candidate = recordFor(event, message, selected.part, start, text.slice(start, proposed))
-            return call.fits(page(call.start, [candidate], scannedEvents, scannedCharacters + scanned, next))
-          })
-          record = recordFor(event, message, position.part, start, text.slice(start, selectedEnd))
+        const candidateFor = (proposed: number) => {
+          // Matches already contained by this excerpt need no duplicate excerpt.
+          // Preserve overlap so a literal crossing its end remains discoverable.
+          const following = window.indexOf(args.query, Math.max(match + 1, proposed - selected.offset - args.query.length + 1))
+          const next = following < 0 ? nextWindow : { ...selected, offset: boundaryAt(text, selected.offset + following) }
+          const record: TranscriptRecord = {
+            ...recordFor(event, message, selected.part, start, text.slice(start, proposed)),
+            read: { startSeq: event.seq, part: selected.part, offset: start },
+            ...proposed < lineEnd || (start > 0 && text[start - 1] !== '\n') ? { truncated: true as const } : {},
+          }
+          return { record, next, following }
         }
-        if (record.text.length === 0 || !call.fits(page(call.start, [...records, record], scannedEvents, scannedCharacters + scanned, next))) {
-          const result = page(call.start, records, scannedEvents, scannedCharacters, position)
+        let candidate = candidateFor(snippetEnd)
+        if (records.length === 0 && !call.fits(page(call.start, [candidate.record], scannedEvents, scannedCharacters + scanned, candidate.next))) {
+          const selectedEnd = fittingEnd(text, start, snippetEnd, proposed => {
+            const proposedResult = candidateFor(proposed)
+            return call.fits(page(call.start, [proposedResult.record], scannedEvents, scannedCharacters + scanned, proposedResult.next))
+          })
+          candidate = candidateFor(selectedEnd)
+        }
+        if (candidate.record.text.length === 0
+          || !call.fits(page(call.start, [...records, candidate.record], scannedEvents, scannedCharacters + scanned, candidate.next))) {
+          const result = page(call.start, records, scannedEvents, scannedCharacters + scanned, { ...selected, offset: boundaryAt(text, matchOffset) })
           if (records.length === 0 || !call.fits(result)) throw budgetFailure()
           return JSON.stringify(result)
         }
-        records.push(record)
+        records.push(candidate.record)
+        match = candidate.following
       }
       scannedCharacters += scanned
       if (end < text.length) {
@@ -311,4 +352,8 @@ export async function searchContext(ctx: Context, args: SearchArgs, exec: ToolRu
 
 function budgetFailure(): HarnessError {
   return new HarnessError('Context result metadata exceeds its output budget. Increase the recall output limits.', 'CONTEXT_RECALL_BUDGET_TOO_SMALL')
+}
+
+function invalidPosition(): HarnessError {
+  return new HarnessError('Use a search hit.read location for one event: part is a visible-text index; offset is a UTF-16 position between Unicode scalars. Omit part/offset when continuing cursor.', 'CONTEXT_RECALL_INVALID_POSITION')
 }

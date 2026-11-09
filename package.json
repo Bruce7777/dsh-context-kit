@@ -1,6 +1,6 @@
 {
   "name": "dsh-context-kit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Budgeted, recallable context compression for DeepSeek Harness.",
   "type": "module",
   "license": "MIT",

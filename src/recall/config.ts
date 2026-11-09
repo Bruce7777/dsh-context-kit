@@ -9,11 +9,11 @@ export interface Config {
   maxOutputBytes?: number
   /** Maximum raw events inspected by one page. Defaults to 256. */
   maxScanEvents?: number
-  /** Maximum text code units inspected by one search page. Defaults to 65536. */
+  /** Maximum text code units inspected by one search page. Defaults to 1048576. */
   maxScanCharacters?: number
   /** Maximum literal search query length in code units. Defaults to 256. */
   maxQueryCharacters?: number
-  /** Maximum code units in one search snippet. Defaults to 240. */
+  /** Maximum code units in one search snippet. Defaults to 2048. */
   snippetCharacters?: number
 }
 
@@ -22,9 +22,9 @@ export const Config: z<Config> = z.object({
   maxOutputTokens: z.number().step(1).min(256).default(2048),
   maxOutputBytes: z.number().step(1).min(1024).default(8192),
   maxScanEvents: z.number().step(1).min(1).default(256),
-  maxScanCharacters: z.number().step(1).min(1024).default(65536),
+  maxScanCharacters: z.number().step(1).min(1024).default(1048576),
   maxQueryCharacters: z.number().step(1).min(1).default(256),
-  snippetCharacters: z.number().step(1).min(1).default(240),
+  snippetCharacters: z.number().step(1).min(1).default(2048),
 })
 
 /** Fully specified limits shared by the two tools. */
@@ -40,9 +40,9 @@ export function resolveConfig(input: Config): Readonly<RecallConfig> {
     maxOutputTokens: input.maxOutputTokens ?? 2048,
     maxOutputBytes: input.maxOutputBytes ?? 8192,
     maxScanEvents: input.maxScanEvents ?? 256,
-    maxScanCharacters: input.maxScanCharacters ?? 65536,
+    maxScanCharacters: input.maxScanCharacters ?? 1048576,
     maxQueryCharacters: input.maxQueryCharacters ?? 256,
-    snippetCharacters: input.snippetCharacters ?? 240,
+    snippetCharacters: input.snippetCharacters ?? 2048,
   }
   const keys = new Set(Object.keys(resolved))
   for (const key of Object.keys(input)) {

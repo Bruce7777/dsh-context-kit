@@ -3,7 +3,7 @@ import { Context } from '@deepseek-ai/cordis'
 import AgentLoop from '@deepseek-ai/dsh-agent-loop'
 import { agentEvents } from '@deepseek-ai/dsh-agent'
 import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import { CONTEXT_WINDOW_EXCEEDED_CODE, LlmAdapter, type GenerateOptions, type LlmResolvedModelInfo, type StreamChunk } from '@deepseek-ai/dsh-llm'
+import { CONTEXT_WINDOW_EXCEEDED_CODE, LlmAdapter, ReasoningEffortId, createUserMessage, type GenerateOptions, type LlmResolvedModelInfo, type StreamChunk } from '@deepseek-ai/dsh-llm'
 import { SessionId, pluginRecordOf } from '@deepseek-ai/dsh-session'
 import type { SessionEvent } from '@deepseek-ai/dsh-session'
 import TokenMeter from '@deepseek-ai/dsh-token-meter'
@@ -15,11 +15,14 @@ import { budgetHistory } from '../integration/budget-history.js'
 class SummaryAdapter extends LlmAdapter {
   readonly summaries: GenerateOptions[] = []
   readonly contextWindows: Record<string, number> = {}
+  readonly reasoningEfforts: Record<string, readonly ReasoningEffortId[]> = {}
   failure: Error | undefined
   gate: Promise<void> | undefined
   onStart: (() => void) | undefined
   override resolveModel(provider: string, model: string): Promise<LlmResolvedModelInfo> {
-    return Promise.resolve({ provider, id: model, name: model, context: { contextWindow: this.contextWindows[model] ?? 1048576 }, defaultMaxTokens: 8192 })
+    const efforts = this.reasoningEfforts[`${provider}/${model}`] ?? ['off', 'high', 'max'].map(ReasoningEffortId)
+    return Promise.resolve({ provider, id: model, name: model, context: { contextWindow: this.contextWindows[model] ?? 1048576 }, defaultMaxTokens: 8192,
+      reasoning: { efforts: efforts.map(id => ({ id, name: id })), defaultEffort: efforts.includes(ReasoningEffortId('high')) ? ReasoningEffortId('high') : efforts[0] } })
   }
   override async * stream(options: GenerateOptions): AsyncIterable<StreamChunk> {
     this.summaries.push(options)
@@ -59,6 +62,7 @@ async function harness(config: BudgetedCompactionConfig = {}, recall = true, ste
 }
 
 const signal = (): AbortSignal => new AbortController().signal
+const streamListenerCount = (ctx: Context): number => ctx.events.dispatch('waterfall', [ctx.llm, 'llm/stream']).length
 
 describe('budget compaction policy through public host services', () => {
   it('reduces accumulated smaller tool results while keeping recent and error outputs verbatim', async () => {
@@ -121,7 +125,8 @@ describe('budget compaction policy through public host services', () => {
   })
 
   it('leaves the surface intact when auxiliary summarization fails', async () => {
-    const { engine, agent, adapter, committed } = await harness({ maxContextTokens: 6000, toolHistoryTokens: 6000, protectedSteps: 0, minSavingsTokens: 128, toolHeadChars: 10000 })
+    const { ctx, engine, agent, adapter, committed } = await harness({ maxContextTokens: 6000, toolHistoryTokens: 6000, protectedSteps: 0, minSavingsTokens: 128, toolHeadChars: 10000 })
+    const listeners = streamListenerCount(ctx)
     adapter.failure = new Error('provider unreachable')
     // The deterministic first phase is independently durable; only the
     // unsuccessful summary must leave no replacement checkpoint behind.
@@ -129,6 +134,7 @@ describe('budget compaction policy through public host services', () => {
     expect(committed.some(event => event.type === 'compaction/start')).toBe(true)
     expect(committed.some(event => event.type === 'compaction/end')).toBe(true)
     expect(committed.some(event => event.type === 'user/message')).toBe(false)
+    expect(streamListenerCount(ctx)).toBe(listeners)
   })
 
   it('records exact source references for an inherited manual compaction', async () => {
@@ -143,7 +149,8 @@ describe('budget compaction policy through public host services', () => {
   })
 
   it('records a failed summary without a checkpoint when cancellation arrives during generation', async () => {
-    const { engine, agent, adapter, committed } = await harness({ maxContextTokens: 6000, toolHeadChars: 10000 })
+    const { ctx, engine, agent, adapter, committed } = await harness({ maxContextTokens: 6000, toolHeadChars: 10000 })
+    const listeners = streamListenerCount(ctx)
     let start!: () => void
     let release!: () => void
     const started = new Promise<void>(resolve => { start = resolve })
@@ -157,6 +164,7 @@ describe('budget compaction policy through public host services', () => {
     await expect(operation).rejects.toThrow()
     expect(committed.some(event => event.type === 'user/message')).toBe(false)
     expect(committed.some(event => event.type === 'compaction/end')).toBe(true)
+    expect(streamListenerCount(ctx)).toBe(listeners)
   })
 
 
@@ -204,6 +212,73 @@ describe('budget compaction policy through public host services', () => {
     await engine.compactIfNeeded(agent, 'pressure', signal())
     expect(committed).toHaveLength(count)
     expect(adapter.summaries).toHaveLength(0)
+  })
+
+  it.each(['max', 'off'])('inherits explicit %s effort on the same route and logs it before generation', async effort => {
+    const { ctx, engine, agent, adapter, committed } = await harness({ maxContextTokens: 6000, pruneToolResults: false })
+    const original = agent.session.requestHeader()
+    if (original === undefined) throw new Error('fixture lacks its request header')
+    agent.session.append('request/header', { header: { ...original, config: { ...original.config, reasoningEffort: ReasoningEffortId(effort) } }, reason: 'change' })
+    const header = agent.session.requestHeader()
+    const listeners = streamListenerCount(ctx)
+    adapter.onStart = () => {
+      const record = committed.map(pluginRecordOf).find(value => value?.type === 'plugin:dsh-context-kit/summary-policy')
+      expect(record?.data).toMatchObject({ reasoningEffort: effort })
+    }
+    await engine.compactIfNeeded(agent, 'pressure', signal())
+    expect(adapter.summaries).toHaveLength(1)
+    expect(adapter.summaries[0]).toMatchObject({ provider: 'deepseek-official', model: 'deepseek-flash', reasoningEffort: effort, maxTokens: 16384, purpose: 'compaction' })
+    expect(agent.session.requestHeader()).toEqual(header)
+    expect(streamListenerCount(ctx)).toBe(listeners)
+  })
+
+  it.each([
+    { provider: 'summary-provider', model: 'deepseek-flash', policy: false },
+    { provider: 'deepseek-official', model: 'summary-model', policy: false },
+    { provider: 'deepseek-official', model: 'summary-model', policy: true },
+  ])('uses $provider/$model own effort defaults with model policy=$policy', async ({ provider, model, policy }) => {
+    const summary = { summarizationProvider: provider, summarizationModel: model }
+    const { ctx, engine, agent, adapter, committed } = await harness({ maxContextTokens: 6000, pruneToolResults: false,
+      ...policy ? { modelPolicies: [{ provider: 'deepseek-official', model: 'deepseek-flash', ...summary }] } : summary })
+    if (provider !== 'deepseek-official') ctx.llm.registerAdapter([provider], adapter)
+    adapter.reasoningEfforts[`${provider}/${model}`] = [ReasoningEffortId('off')]
+    const original = agent.session.requestHeader()
+    if (original === undefined) throw new Error('fixture lacks its request header')
+    agent.session.append('request/header', { header: { ...original, config: { ...original.config, reasoningEffort: ReasoningEffortId('max') } }, reason: 'change' })
+    await engine.compactIfNeeded(agent, 'pressure', signal())
+    expect(adapter.summaries).toHaveLength(1)
+    expect(adapter.summaries[0]).toMatchObject({ provider, model, reasoningEffort: 'off', maxTokens: 16384 })
+    const record = committed.map(pluginRecordOf).find(value => value?.type === 'plugin:dsh-context-kit/summary-policy')
+    expect(record?.data).not.toHaveProperty('reasoningEffort')
+  })
+
+  it('limits temporary effort inheritance to the exact summary call while other streams dispatch', async () => {
+    const { ctx, engine, agent, adapter } = await harness({ maxContextTokens: 6000, pruneToolResults: false })
+    const original = agent.session.requestHeader()
+    if (original === undefined) throw new Error('fixture lacks its request header')
+    agent.session.append('request/header', { header: { ...original, config: { ...original.config, reasoningEffort: ReasoningEffortId('max') } }, reason: 'change' })
+    const probes: { options: GenerateOptions; stream: AsyncIterable<StreamChunk> }[] = []
+    let intercepted = false
+    ctx.on('internal/dispatch', (_mode, name, args) => {
+      if (name !== 'llm/stream' || intercepted || args.length === 0) return
+      const current = args[0] as GenerateOptions
+      if (current.purpose !== 'compaction' || current.sessionId !== agent.id) return
+      intercepted = true
+      const unrelated = createUserMessage({ source: { kind: 'user' }, content: [{ type: 'text', text: 'Independent model request.' }] })
+      for (const options of [
+        { ...current, sessionId: SessionId('another-summary-session'), reasoningEffort: undefined },
+        { ...current, purpose: undefined, reasoningEffort: undefined },
+        { ...current, messages: [unrelated], reasoningEffort: undefined },
+      ]) probes.push({ options, stream: ctx.llm.stream(options) })
+    })
+    const listeners = streamListenerCount(ctx)
+    await engine.compactIfNeeded(agent, 'pressure', signal())
+    expect(probes).toHaveLength(3)
+    expect(probes.every(probe => probe.options.reasoningEffort === undefined)).toBe(true)
+    expect(adapter.summaries[0]?.reasoningEffort).toBe('max')
+    await Promise.all(probes.map(async probe => { for await (const _chunk of probe.stream) {} }))
+    expect(adapter.summaries.slice(1).map(options => options.reasoningEffort)).toEqual(['high', 'high', 'high'])
+    expect(streamListenerCount(ctx)).toBe(listeners)
   })
 
 

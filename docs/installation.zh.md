@@ -16,19 +16,19 @@ dsh --version
 Web 默认 profile：
 
 ```sh
-dsh plugin --profile web add https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.0.tgz
+dsh plugin --profile web add https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.1.tgz
 ```
 
 Headless：
 
 ```sh
-dsh plugin --profile headless add https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.0.tgz
+dsh plugin --profile headless add https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.1.tgz
 ```
 
 独立数据目录的实例，使用该实例已有的 `DSH_HOME`。以下路径为占位示例：
 
 ```sh
-DSH_HOME=/path/to/dsh-home dsh plugin --profile web add https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.0.tgz
+DSH_HOME=/path/to/dsh-home dsh plugin --profile web add https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.1.tgz
 ```
 
 安装位置由 `DSH_HOME + profile` 决定，端口不决定安装位置。Desktop 使用应用自己的插件管理入口，安装源填写上面的 GitHub `.tgz` URL；给 `web` 安装不会自动给 Desktop 安装。
@@ -37,12 +37,12 @@ DSH_HOME=/path/to/dsh-home dsh plugin --profile web add https://raw.githubuserco
 
 ## 3. 网络受限时下载后安装
 
-打开仓库的 [release-assets](../release-assets/) 目录，下载 `dsh-context-kit-0.1.0.tgz` 及对应 `.sha256` 文件。macOS/Linux 可在下载目录校验后安装：
+打开仓库的 [release-assets](../release-assets/) 目录，下载 `dsh-context-kit-0.1.1.tgz` 及对应 `.sha256` 文件。macOS/Linux 可在下载目录校验后安装：
 
 ```sh
 cd ~/Downloads
-shasum -a 256 -c dsh-context-kit-0.1.0.tgz.sha256
-dsh plugin --profile web add ./dsh-context-kit-0.1.0.tgz
+shasum -a 256 -c dsh-context-kit-0.1.1.tgz.sha256
+dsh plugin --profile web add ./dsh-context-kit-0.1.1.tgz
 ```
 
 Windows 可用 `Get-FileHash` 核对 SHA-256，再把本地绝对路径传给同一个 `dsh plugin` 命令。校验文件用于比对发布文件是否完整，不代替对仓库来源的信任判断。
@@ -56,6 +56,8 @@ Windows 可用 `Get-FileHash` 核对 SHA-256，再把本地绝对路径传给同
 | `context-budget` / `dsh-context-kit/budgeted` | 启用 |
 | `context-recall` / `dsh-context-kit/recall` | 启用 |
 | `compaction-basic` | 禁用 |
+
+此 bundle 替换的是 profile 顶层压缩器。有些标准或自定义 Agent preset 还包含独立的 `compaction` group；服务隔离不会屏蔽顶层自动事件监听，两个提供者可能同时收到压力检查。为确保测试或使用时只有预算插件自动压缩，请检查实际 preset，把其中 Basic 行的 `config.auto` 设为 `false`，或在自有 preset 中移除内置压缩组。修改标准 preset 时应先复制成自有 preset 并保留其他能力。仅关闭自动 Basic 不会改变该组 `/compact` 命令选择的提供者。本套件不会自动改写任意 preset；本次对照使用无内置压缩组的同一专用 preset。
 
 支持的 HMR 会实时应用组合；未生效时重启对应 DSH 实例。命令行也可查看合成配置：
 
@@ -86,7 +88,8 @@ dsh --profile web --dump-config
     maxOutputTokens: 2048
     maxOutputBytes: 8192
     maxScanEvents: 256
-    maxScanCharacters: 65536
+    maxScanCharacters: 1048576
+    snippetCharacters: 2048
 ```
 
 这里的 `maxTokens` 控制摘要生成上限，`summaryTargetTokens` 是摘要正文长度指导。原文仍保留在 Session 日志，活跃预算是软目标；大块近期受保护内容可能使其超出。
@@ -121,8 +124,8 @@ dsh plugin --profile web remove dsh-context-kit
 
 ```sh
 pnpm install --frozen-lockfile
-pnpm run verify:install ./release-assets/dsh-context-kit-0.1.0.tgz
-pnpm run verify:install https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.0.tgz
+pnpm run verify:install ./release-assets/dsh-context-kit-0.1.1.tgz
+pnpm run verify:install https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.1.tgz
 ```
 
 公开发布验收记录见[测试结果](test-results.zh.md)。

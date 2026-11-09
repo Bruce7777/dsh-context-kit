@@ -1,0 +1,2877 @@
+{
+  "measurement": "actual provider-reported usage, including auxiliary summaries; active turn times exclude other-lane barrier idle",
+  "date": "2026-11-09",
+  "dsh": "0.2.2-rc.1",
+  "node": "24.15.0",
+  "provider": "deepseek-official",
+  "model": "deepseek-flash",
+  "mainReasoningEffort": "max",
+  "mainMaxTokens": 256000,
+  "summaryMaxTokens": 16384,
+  "corpus": {
+    "seed": "20261109030803082",
+    "bytes": 698102,
+    "shards": 14,
+    "sourceLines": 1179,
+    "coldFields": 7,
+    "warmFields": 6
+  },
+  "runs": [
+    {
+      "version": "0.1.0",
+      "id": "initial",
+      "startedAt": "2026-11-09T07:27:59.353Z",
+      "endedAt": "2026-11-09T07:31:44.315Z",
+      "lanes": {
+        "3080": {
+          "treatment": "dsh-context-kit 0.1.0",
+          "turns": [
+            {
+              "turn": "ingest-01",
+              "stage": "ingestion",
+              "elapsedMs": 3225.081732,
+              "usage": {
+                "uncachedInputTokens": 23857,
+                "cacheReadTokens": 5376,
+                "outputTokens": 168,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 223,
+                    "outputTokens": 133,
+                    "cacheReadTokens": 2560,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 2916
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23634,
+                    "outputTokens": 35,
+                    "cacheReadTokens": 2816,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26485
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-02",
+              "stage": "ingestion",
+              "elapsedMs": 3958.151390000001,
+              "usage": {
+                "uncachedInputTokens": 23846,
+                "cacheReadTokens": 91392,
+                "outputTokens": 146,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 216,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 26368,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26664
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11833,
+                    "outputTokens": 51,
+                    "cacheReadTokens": 26624,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 38508
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11797,
+                    "outputTokens": 15,
+                    "cacheReadTokens": 38400,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50212
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-03",
+              "stage": "ingestion",
+              "elapsedMs": 4425.055639,
+              "usage": {
+                "uncachedInputTokens": 23634,
+                "cacheReadTokens": 162560,
+                "outputTokens": 115,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 135,
+                    "outputTokens": 53,
+                    "cacheReadTokens": 50176,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50364
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11789,
+                    "outputTokens": 49,
+                    "cacheReadTokens": 50304,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 62142
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11710,
+                    "outputTokens": 13,
+                    "cacheReadTokens": 62080,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 73803
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-04",
+              "stage": "ingestion",
+              "elapsedMs": 4621.805259999999,
+              "usage": {
+                "uncachedInputTokens": 23780,
+                "cacheReadTokens": 233216,
+                "outputTokens": 114,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 174,
+                    "outputTokens": 53,
+                    "cacheReadTokens": 73728,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 73955
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11836,
+                    "outputTokens": 49,
+                    "cacheReadTokens": 73856,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 85741
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11770,
+                    "outputTokens": 12,
+                    "cacheReadTokens": 85632,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97414
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-05",
+              "stage": "ingestion",
+              "elapsedMs": 3525.4765279999992,
+              "usage": {
+                "uncachedInputTokens": 23685,
+                "cacheReadTokens": 304128,
+                "outputTokens": 113,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 233,
+                    "outputTokens": 52,
+                    "cacheReadTokens": 97280,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97565
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11755,
+                    "outputTokens": 50,
+                    "cacheReadTokens": 97536,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 109341
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11697,
+                    "outputTokens": 11,
+                    "cacheReadTokens": 109312,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 121020
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-06",
+              "stage": "ingestion",
+              "elapsedMs": 18855.378389,
+              "usage": {
+                "uncachedInputTokens": 144359,
+                "cacheReadTokens": 153344,
+                "outputTokens": 2381,
+                "cacheWriteTokens": 0
+              },
+              "requests": 4,
+              "summaryCalls": 1,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 159,
+                    "outputTokens": 52,
+                    "cacheReadTokens": 120960,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 121171
+                  }
+                },
+                {
+                  "type": "compaction/summary",
+                  "usage": {
+                    "inputTokens": 107145,
+                    "outputTokens": 2280,
+                    "cacheReadTokens": 2560,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 111985
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 25261,
+                    "outputTokens": 45,
+                    "cacheReadTokens": 2304,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 27610
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11794,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 27520,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 39318
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-07",
+              "stage": "ingestion",
+              "elapsedMs": 4135.083121000003,
+              "usage": {
+                "uncachedInputTokens": 23813,
+                "cacheReadTokens": 129792,
+                "outputTokens": 94,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 249,
+                    "outputTokens": 45,
+                    "cacheReadTokens": 39168,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 39462
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11761,
+                    "outputTokens": 45,
+                    "cacheReadTokens": 39424,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 51230
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11803,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 51200,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 63007
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "cold",
+              "stage": "cold-answer",
+              "elapsedMs": 153658.099881,
+              "usage": {
+                "uncachedInputTokens": 16994,
+                "cacheReadTokens": 3051264,
+                "outputTokens": 19613,
+                "cacheWriteTokens": 0
+              },
+              "requests": 39,
+              "summaryCalls": 0,
+              "toolCalls": 75,
+              "recallCalls": 75,
+              "toolErrors": 5,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 199,
+                    "outputTokens": 731,
+                    "cacheReadTokens": 62976,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 63906
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 204,
+                    "outputTokens": 220,
+                    "cacheReadTokens": 63744,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 64168
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 234,
+                    "outputTokens": 714,
+                    "cacheReadTokens": 64128,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 65076
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 421,
+                    "outputTokens": 394,
+                    "cacheReadTokens": 65024,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 65839
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 199,
+                    "outputTokens": 95,
+                    "cacheReadTokens": 65664,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 65958
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 189,
+                    "outputTokens": 364,
+                    "cacheReadTokens": 65792,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 66345
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 340,
+                    "outputTokens": 237,
+                    "cacheReadTokens": 66304,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 66881
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 258,
+                    "outputTokens": 628,
+                    "cacheReadTokens": 66816,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 67702
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 354,
+                    "outputTokens": 735,
+                    "cacheReadTokens": 67584,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 68673
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 358,
+                    "outputTokens": 572,
+                    "cacheReadTokens": 68608,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 69538
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 391,
+                    "outputTokens": 713,
+                    "cacheReadTokens": 69504,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 70608
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 811,
+                    "outputTokens": 530,
+                    "cacheReadTokens": 70528,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 71869
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 419,
+                    "outputTokens": 1799,
+                    "cacheReadTokens": 71808,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 74026
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 211,
+                    "outputTokens": 658,
+                    "cacheReadTokens": 73984,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 74853
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 685,
+                    "outputTokens": 369,
+                    "cacheReadTokens": 74752,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 75806
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 204,
+                    "outputTokens": 305,
+                    "cacheReadTokens": 75648,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 76157
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 148,
+                    "outputTokens": 90,
+                    "cacheReadTokens": 76032,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 76270
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 291,
+                    "outputTokens": 392,
+                    "cacheReadTokens": 76160,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 76843
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 225,
+                    "outputTokens": 90,
+                    "cacheReadTokens": 76800,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 77115
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 240,
+                    "outputTokens": 82,
+                    "cacheReadTokens": 77056,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 77378
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 248,
+                    "outputTokens": 111,
+                    "cacheReadTokens": 77312,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 77671
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 290,
+                    "outputTokens": 438,
+                    "cacheReadTokens": 77568,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 78296
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 2348,
+                    "outputTokens": 512,
+                    "cacheReadTokens": 78208,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 81068
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 782,
+                    "outputTokens": 302,
+                    "cacheReadTokens": 81024,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 82108
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 361,
+                    "outputTokens": 736,
+                    "cacheReadTokens": 82048,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 83145
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 625,
+                    "outputTokens": 722,
+                    "cacheReadTokens": 83072,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 84419
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 822,
+                    "outputTokens": 283,
+                    "cacheReadTokens": 84352,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 85457
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 255,
+                    "outputTokens": 545,
+                    "cacheReadTokens": 85248,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 86048
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 619,
+                    "outputTokens": 459,
+                    "cacheReadTokens": 86016,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 87094
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 609,
+                    "outputTokens": 343,
+                    "cacheReadTokens": 87040,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 87992
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 425,
+                    "outputTokens": 1121,
+                    "cacheReadTokens": 87936,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 89482
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 556,
+                    "outputTokens": 683,
+                    "cacheReadTokens": 89472,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 90711
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 638,
+                    "outputTokens": 721,
+                    "cacheReadTokens": 90624,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 91983
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 483,
+                    "outputTokens": 470,
+                    "cacheReadTokens": 91904,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 92857
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 145,
+                    "outputTokens": 390,
+                    "cacheReadTokens": 92800,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 93335
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 384,
+                    "outputTokens": 284,
+                    "cacheReadTokens": 93312,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 93980
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 316,
+                    "outputTokens": 686,
+                    "cacheReadTokens": 93952,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 94954
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 469,
+                    "outputTokens": 449,
+                    "cacheReadTokens": 94848,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 95766
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 238,
+                    "outputTokens": 640,
+                    "cacheReadTokens": 95616,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 96494
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "warm",
+              "stage": "warm-answer",
+              "elapsedMs": 21949.734154000005,
+              "usage": {
+                "uncachedInputTokens": 2999,
+                "cacheReadTokens": 691200,
+                "outputTokens": 2608,
+                "cacheWriteTokens": 0
+              },
+              "requests": 7,
+              "summaryCalls": 0,
+              "toolCalls": 12,
+              "recallCalls": 12,
+              "toolErrors": 1,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 303,
+                    "outputTokens": 440,
+                    "cacheReadTokens": 96384,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97127
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 762,
+                    "outputTokens": 500,
+                    "cacheReadTokens": 97024,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 98286
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 314,
+                    "outputTokens": 533,
+                    "cacheReadTokens": 98176,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 99023
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 534,
+                    "outputTokens": 275,
+                    "cacheReadTokens": 98944,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 99753
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 222,
+                    "outputTokens": 234,
+                    "cacheReadTokens": 99712,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 100168
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 430,
+                    "outputTokens": 452,
+                    "cacheReadTokens": 100096,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 100978
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 434,
+                    "outputTokens": 174,
+                    "cacheReadTokens": 100864,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 101472
+                  }
+                }
+              ]
+            }
+          ],
+          "totals": {
+            "uncachedInputTokens": 306967,
+            "cacheReadTokens": 4822272,
+            "cacheWriteTokens": 0,
+            "outputTokens": 25352,
+            "requests": 67,
+            "summaryCalls": 1,
+            "toolCalls": 101,
+            "recallCalls": 87,
+            "toolErrors": 6,
+            "elapsedMs": 218353.866094,
+            "inputTokens": 5129239,
+            "totalTokens": 5154591,
+            "cacheHitRatio": 0.9401535003535613
+          }
+        },
+        "3082": {
+          "treatment": "native Basic without context kit",
+          "turns": [
+            {
+              "turn": "ingest-01",
+              "stage": "ingestion",
+              "elapsedMs": 6505.045292000001,
+              "usage": {
+                "uncachedInputTokens": 26290,
+                "cacheReadTokens": 17280,
+                "outputTokens": 308,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 2580,
+                    "outputTokens": 213,
+                    "cacheReadTokens": 0,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 2793
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11895,
+                    "outputTokens": 76,
+                    "cacheReadTokens": 2688,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 14659
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11815,
+                    "outputTokens": 19,
+                    "cacheReadTokens": 14592,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26426
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-02",
+              "stage": "ingestion",
+              "elapsedMs": 4579.009377000001,
+              "usage": {
+                "uncachedInputTokens": 23827,
+                "cacheReadTokens": 91264,
+                "outputTokens": 164,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 157,
+                    "outputTokens": 88,
+                    "cacheReadTokens": 26368,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26613
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11910,
+                    "outputTokens": 65,
+                    "cacheReadTokens": 26496,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 38471
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11760,
+                    "outputTokens": 11,
+                    "cacheReadTokens": 38400,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50171
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-03",
+              "stage": "ingestion",
+              "elapsedMs": 3806.737567,
+              "usage": {
+                "uncachedInputTokens": 23681,
+                "cacheReadTokens": 162432,
+                "outputTokens": 144,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 222,
+                    "outputTokens": 65,
+                    "cacheReadTokens": 50048,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50335
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11760,
+                    "outputTokens": 67,
+                    "cacheReadTokens": 50304,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 62131
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11699,
+                    "outputTokens": 12,
+                    "cacheReadTokens": 62080,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 73791
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-04",
+              "stage": "ingestion",
+              "elapsedMs": 4258.081942000001,
+              "usage": {
+                "uncachedInputTokens": 23785,
+                "cacheReadTokens": 233216,
+                "outputTokens": 142,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 162,
+                    "outputTokens": 65,
+                    "cacheReadTokens": 73728,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 73955
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11836,
+                    "outputTokens": 66,
+                    "cacheReadTokens": 73856,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 85758
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11787,
+                    "outputTokens": 11,
+                    "cacheReadTokens": 85632,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97430
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-05",
+              "stage": "ingestion",
+              "elapsedMs": 5347.295616000003,
+              "usage": {
+                "uncachedInputTokens": 23775,
+                "cacheReadTokens": 304128,
+                "outputTokens": 142,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 249,
+                    "outputTokens": 65,
+                    "cacheReadTokens": 97280,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97594
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11784,
+                    "outputTokens": 66,
+                    "cacheReadTokens": 97536,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 109386
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11742,
+                    "outputTokens": 11,
+                    "cacheReadTokens": 109312,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 121065
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-06",
+              "stage": "ingestion",
+              "elapsedMs": 4913.734967,
+              "usage": {
+                "uncachedInputTokens": 23634,
+                "cacheReadTokens": 375168,
+                "outputTokens": 142,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 204,
+                    "outputTokens": 65,
+                    "cacheReadTokens": 120960,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 121229
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11718,
+                    "outputTokens": 66,
+                    "cacheReadTokens": 121216,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 133000
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11712,
+                    "outputTokens": 11,
+                    "cacheReadTokens": 132992,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 144715
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-07",
+              "stage": "ingestion",
+              "elapsedMs": 4447.647345999998,
+              "usage": {
+                "uncachedInputTokens": 23787,
+                "cacheReadTokens": 446080,
+                "outputTokens": 147,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 174,
+                    "outputTokens": 70,
+                    "cacheReadTokens": 144640,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 144884
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11839,
+                    "outputTokens": 66,
+                    "cacheReadTokens": 144768,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 156673
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11774,
+                    "outputTokens": 11,
+                    "cacheReadTokens": 156672,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 168457
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "cold",
+              "stage": "cold-answer",
+              "elapsedMs": 5903.966629999995,
+              "usage": {
+                "uncachedInputTokens": 177,
+                "cacheReadTokens": 168448,
+                "outputTokens": 903,
+                "cacheWriteTokens": 0
+              },
+              "requests": 1,
+              "summaryCalls": 0,
+              "toolCalls": 0,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 177,
+                    "outputTokens": 903,
+                    "cacheReadTokens": 168448,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 169528
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "warm",
+              "stage": "warm-answer",
+              "elapsedMs": 4620.783929000027,
+              "usage": {
+                "uncachedInputTokens": 249,
+                "cacheReadTokens": 169472,
+                "outputTokens": 623,
+                "cacheWriteTokens": 0
+              },
+              "requests": 1,
+              "summaryCalls": 0,
+              "toolCalls": 0,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 249,
+                    "outputTokens": 623,
+                    "cacheReadTokens": 169472,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 170344
+                  }
+                }
+              ]
+            }
+          ],
+          "totals": {
+            "uncachedInputTokens": 169205,
+            "cacheReadTokens": 1967488,
+            "cacheWriteTokens": 0,
+            "outputTokens": 2715,
+            "requests": 23,
+            "summaryCalls": 0,
+            "toolCalls": 14,
+            "recallCalls": 0,
+            "toolErrors": 0,
+            "elapsedMs": 44382.302666000025,
+            "inputTokens": 2136693,
+            "totalTokens": 2139408,
+            "cacheHitRatio": 0.920809868333916
+          }
+        }
+      }
+    },
+    {
+      "version": "0.1.1",
+      "id": "optimized",
+      "startedAt": "2026-11-09T07:51:54.144Z",
+      "endedAt": "2026-11-09T07:52:53.517Z",
+      "lanes": {
+        "3080": {
+          "treatment": "dsh-context-kit 0.1.1",
+          "turns": [
+            {
+              "turn": "ingest-01",
+              "stage": "ingestion",
+              "elapsedMs": 5767.913151,
+              "usage": {
+                "uncachedInputTokens": 26499,
+                "cacheReadTokens": 17536,
+                "outputTokens": 217,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 2799,
+                    "outputTokens": 126,
+                    "cacheReadTokens": 0,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 2925
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11899,
+                    "outputTokens": 58,
+                    "cacheReadTokens": 2816,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 14773
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11801,
+                    "outputTokens": 33,
+                    "cacheReadTokens": 14720,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26554
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-02",
+              "stage": "ingestion",
+              "elapsedMs": 5141.998383000001,
+              "usage": {
+                "uncachedInputTokens": 23788,
+                "cacheReadTokens": 91648,
+                "outputTokens": 144,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 157,
+                    "outputTokens": 72,
+                    "cacheReadTokens": 26496,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26725
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11894,
+                    "outputTokens": 58,
+                    "cacheReadTokens": 26624,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 38576
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11737,
+                    "outputTokens": 14,
+                    "cacheReadTokens": 38528,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50279
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-03",
+              "stage": "ingestion",
+              "elapsedMs": 4198.087390000001,
+              "usage": {
+                "uncachedInputTokens": 23612,
+                "cacheReadTokens": 162816,
+                "outputTokens": 133,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 202,
+                    "outputTokens": 68,
+                    "cacheReadTokens": 50176,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50446
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11743,
+                    "outputTokens": 52,
+                    "cacheReadTokens": 50432,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 62227
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11667,
+                    "outputTokens": 13,
+                    "cacheReadTokens": 62208,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 73888
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-04",
+              "stage": "ingestion",
+              "elapsedMs": 5427.235658,
+              "usage": {
+                "uncachedInputTokens": 23791,
+                "cacheReadTokens": 233472,
+                "outputTokens": 123,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 259,
+                    "outputTokens": 57,
+                    "cacheReadTokens": 73728,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 74044
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11797,
+                    "outputTokens": 53,
+                    "cacheReadTokens": 73984,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 85834
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11735,
+                    "outputTokens": 13,
+                    "cacheReadTokens": 85760,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97508
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-05",
+              "stage": "ingestion",
+              "elapsedMs": 3959.555479999999,
+              "usage": {
+                "uncachedInputTokens": 23612,
+                "cacheReadTokens": 304512,
+                "outputTokens": 131,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 199,
+                    "outputTokens": 65,
+                    "cacheReadTokens": 97408,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97672
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11734,
+                    "outputTokens": 53,
+                    "cacheReadTokens": 97664,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 109451
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11679,
+                    "outputTokens": 13,
+                    "cacheReadTokens": 109440,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 121132
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-06",
+              "stage": "ingestion",
+              "elapsedMs": 19514.850337,
+              "usage": {
+                "uncachedInputTokens": 37496,
+                "cacheReadTokens": 260224,
+                "outputTokens": 2439,
+                "cacheWriteTokens": 0
+              },
+              "requests": 4,
+              "summaryCalls": 1,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 143,
+                    "outputTokens": 65,
+                    "cacheReadTokens": 121088,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 121296
+                  }
+                },
+                {
+                  "type": "compaction/summary",
+                  "usage": {
+                    "inputTokens": 500,
+                    "outputTokens": 2217,
+                    "cacheReadTokens": 109312,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 112029
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 25137,
+                    "outputTokens": 91,
+                    "cacheReadTokens": 2304,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 27532
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11716,
+                    "outputTokens": 66,
+                    "cacheReadTokens": 27520,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 39302
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-07",
+              "stage": "ingestion",
+              "elapsedMs": 3578.5318620000035,
+              "usage": {
+                "uncachedInputTokens": 23765,
+                "cacheReadTokens": 129792,
+                "outputTokens": 94,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 233,
+                    "outputTokens": 45,
+                    "cacheReadTokens": 39168,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 39446
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11745,
+                    "outputTokens": 45,
+                    "cacheReadTokens": 39424,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 51214
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11787,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 51200,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 62991
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "cold",
+              "stage": "cold-answer",
+              "elapsedMs": 9082.172356999996,
+              "usage": {
+                "uncachedInputTokens": 2567,
+                "cacheReadTokens": 191360,
+                "outputTokens": 1132,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 6,
+              "recallCalls": 6,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 183,
+                    "outputTokens": 742,
+                    "cacheReadTokens": 62976,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 63901
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 523,
+                    "outputTokens": 228,
+                    "cacheReadTokens": 63872,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 64623
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 1861,
+                    "outputTokens": 162,
+                    "cacheReadTokens": 64512,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 66535
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "warm",
+              "stage": "warm-answer",
+              "elapsedMs": 1856.23027,
+              "usage": {
+                "uncachedInputTokens": 296,
+                "cacheReadTokens": 66432,
+                "outputTokens": 173,
+                "cacheWriteTokens": 0
+              },
+              "requests": 1,
+              "summaryCalls": 0,
+              "toolCalls": 0,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 296,
+                    "outputTokens": 173,
+                    "cacheReadTokens": 66432,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 66901
+                  }
+                }
+              ]
+            }
+          ],
+          "totals": {
+            "uncachedInputTokens": 185426,
+            "cacheReadTokens": 1457792,
+            "cacheWriteTokens": 0,
+            "outputTokens": 4586,
+            "requests": 26,
+            "summaryCalls": 1,
+            "toolCalls": 20,
+            "recallCalls": 6,
+            "toolErrors": 0,
+            "elapsedMs": 58526.574887999996,
+            "inputTokens": 1643218,
+            "totalTokens": 1647804,
+            "cacheHitRatio": 0.88715678625721
+          }
+        },
+        "3082": {
+          "treatment": "native Basic without context kit",
+          "turns": [
+            {
+              "turn": "ingest-01",
+              "stage": "ingestion",
+              "elapsedMs": 3910.209117,
+              "usage": {
+                "uncachedInputTokens": 23763,
+                "cacheReadTokens": 5248,
+                "outputTokens": 291,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 171,
+                    "outputTokens": 271,
+                    "cacheReadTokens": 2432,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 2874
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23592,
+                    "outputTokens": 20,
+                    "cacheReadTokens": 2816,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26428
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-02",
+              "stage": "ingestion",
+              "elapsedMs": 5142.289938000001,
+              "usage": {
+                "uncachedInputTokens": 23755,
+                "cacheReadTokens": 52864,
+                "outputTokens": 91,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 159,
+                    "outputTokens": 87,
+                    "cacheReadTokens": 26368,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26614
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23596,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 26496,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50096
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-03",
+              "stage": "ingestion",
+              "elapsedMs": 2605.1170029999994,
+              "usage": {
+                "uncachedInputTokens": 23619,
+                "cacheReadTokens": 100224,
+                "outputTokens": 84,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 147,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 50048,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50275
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23472,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 50176,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 73652
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-04",
+              "stage": "ingestion",
+              "elapsedMs": 3539.194528000002,
+              "usage": {
+                "uncachedInputTokens": 23648,
+                "cacheReadTokens": 147328,
+                "outputTokens": 84,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 151,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 73600,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 73831
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23497,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 73728,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97229
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-05",
+              "stage": "ingestion",
+              "elapsedMs": 3177.5062319999997,
+              "usage": {
+                "uncachedInputTokens": 23566,
+                "cacheReadTokens": 194560,
+                "outputTokens": 84,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 176,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 97152,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97408
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23390,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 97408,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 120802
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-06",
+              "stage": "ingestion",
+              "elapsedMs": 3114.060418000001,
+              "usage": {
+                "uncachedInputTokens": 23623,
+                "cacheReadTokens": 241664,
+                "outputTokens": 84,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 197,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 120704,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 120981
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23426,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 120960,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 144390
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-07",
+              "stage": "ingestion",
+              "elapsedMs": 3072.521965,
+              "usage": {
+                "uncachedInputTokens": 23782,
+                "cacheReadTokens": 288768,
+                "outputTokens": 84,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 233,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 144256,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 144569
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23549,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 144512,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 168065
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "cold",
+              "stage": "cold-answer",
+              "elapsedMs": 3683.640346,
+              "usage": {
+                "uncachedInputTokens": 169,
+                "cacheReadTokens": 168064,
+                "outputTokens": 556,
+                "cacheWriteTokens": 0
+              },
+              "requests": 1,
+              "summaryCalls": 0,
+              "toolCalls": 0,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 169,
+                    "outputTokens": 556,
+                    "cacheReadTokens": 168064,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 168789
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "warm",
+              "stage": "warm-answer",
+              "elapsedMs": 2110.2440149999966,
+              "usage": {
+                "uncachedInputTokens": 278,
+                "cacheReadTokens": 168704,
+                "outputTokens": 225,
+                "cacheWriteTokens": 0
+              },
+              "requests": 1,
+              "summaryCalls": 0,
+              "toolCalls": 0,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 278,
+                    "outputTokens": 225,
+                    "cacheReadTokens": 168704,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 169207
+                  }
+                }
+              ]
+            }
+          ],
+          "totals": {
+            "uncachedInputTokens": 166203,
+            "cacheReadTokens": 1367424,
+            "cacheWriteTokens": 0,
+            "outputTokens": 1583,
+            "requests": 16,
+            "summaryCalls": 0,
+            "toolCalls": 14,
+            "recallCalls": 0,
+            "toolErrors": 0,
+            "elapsedMs": 30354.783561999997,
+            "inputTokens": 1533627,
+            "totalTokens": 1535210,
+            "cacheHitRatio": 0.8916274948211006
+          }
+        }
+      }
+    },
+    {
+      "version": "0.1.1",
+      "id": "replication",
+      "startedAt": "2026-11-09T07:58:51.341Z",
+      "endedAt": "2026-11-09T07:59:48.802Z",
+      "lanes": {
+        "3080": {
+          "treatment": "dsh-context-kit 0.1.1",
+          "turns": [
+            {
+              "turn": "ingest-01",
+              "stage": "ingestion",
+              "elapsedMs": 5988.469179999999,
+              "usage": {
+                "uncachedInputTokens": 23927,
+                "cacheReadTokens": 20224,
+                "outputTokens": 283,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 239,
+                    "outputTokens": 175,
+                    "cacheReadTokens": 2560,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 2974
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11820,
+                    "outputTokens": 76,
+                    "cacheReadTokens": 2944,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 14840
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11868,
+                    "outputTokens": 32,
+                    "cacheReadTokens": 14720,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26620
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-02",
+              "stage": "ingestion",
+              "elapsedMs": 4631.764050000001,
+              "usage": {
+                "uncachedInputTokens": 23786,
+                "cacheReadTokens": 91904,
+                "outputTokens": 176,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 223,
+                    "outputTokens": 96,
+                    "cacheReadTokens": 26496,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26815
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11856,
+                    "outputTokens": 66,
+                    "cacheReadTokens": 26752,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 38674
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11707,
+                    "outputTokens": 14,
+                    "cacheReadTokens": 38656,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50377
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-03",
+              "stage": "ingestion",
+              "elapsedMs": 6707.674229,
+              "usage": {
+                "uncachedInputTokens": 23690,
+                "cacheReadTokens": 163072,
+                "outputTokens": 161,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 172,
+                    "outputTokens": 81,
+                    "cacheReadTokens": 50304,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50557
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11854,
+                    "outputTokens": 66,
+                    "cacheReadTokens": 50432,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 62352
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11664,
+                    "outputTokens": 14,
+                    "cacheReadTokens": 62336,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 74014
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-04",
+              "stage": "ingestion",
+              "elapsedMs": 4456.306783,
+              "usage": {
+                "uncachedInputTokens": 23824,
+                "cacheReadTokens": 233856,
+                "outputTokens": 148,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 257,
+                    "outputTokens": 70,
+                    "cacheReadTokens": 73856,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 74183
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11808,
+                    "outputTokens": 66,
+                    "cacheReadTokens": 74112,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 85986
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11759,
+                    "outputTokens": 12,
+                    "cacheReadTokens": 85888,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97659
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-05",
+              "stage": "ingestion",
+              "elapsedMs": 4913.632314000002,
+              "usage": {
+                "uncachedInputTokens": 23704,
+                "cacheReadTokens": 304896,
+                "outputTokens": 150,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 222,
+                    "outputTokens": 70,
+                    "cacheReadTokens": 97536,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97828
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11762,
+                    "outputTokens": 66,
+                    "cacheReadTokens": 97792,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 109620
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11720,
+                    "outputTokens": 14,
+                    "cacheReadTokens": 109568,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 121302
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-06",
+              "stage": "ingestion",
+              "elapsedMs": 12322.683103,
+              "usage": {
+                "uncachedInputTokens": 37260,
+                "cacheReadTokens": 260096,
+                "outputTokens": 1209,
+                "cacheWriteTokens": 0
+              },
+              "requests": 4,
+              "summaryCalls": 1,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 185,
+                    "outputTokens": 69,
+                    "cacheReadTokens": 121216,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 121470
+                  }
+                },
+                {
+                  "type": "compaction/summary",
+                  "usage": {
+                    "inputTokens": 528,
+                    "outputTokens": 1045,
+                    "cacheReadTokens": 109440,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 111013
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 24792,
+                    "outputTokens": 91,
+                    "cacheReadTokens": 2304,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 27187
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11755,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 27136,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 38895
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-07",
+              "stage": "ingestion",
+              "elapsedMs": 4967.697767999998,
+              "usage": {
+                "uncachedInputTokens": 23747,
+                "cacheReadTokens": 128640,
+                "outputTokens": 128,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 210,
+                    "outputTokens": 62,
+                    "cacheReadTokens": 38784,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 39056
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11739,
+                    "outputTokens": 62,
+                    "cacheReadTokens": 39040,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50841
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 11798,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 50816,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 62618
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "cold",
+              "stage": "cold-answer",
+              "elapsedMs": 10353.765010999996,
+              "usage": {
+                "uncachedInputTokens": 3737,
+                "cacheReadTokens": 191232,
+                "outputTokens": 1372,
+                "cacheWriteTokens": 0
+              },
+              "requests": 3,
+              "summaryCalls": 0,
+              "toolCalls": 7,
+              "recallCalls": 7,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 194,
+                    "outputTokens": 552,
+                    "cacheReadTokens": 62592,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 63338
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 1660,
+                    "outputTokens": 616,
+                    "cacheReadTokens": 63232,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 65508
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 1883,
+                    "outputTokens": 204,
+                    "cacheReadTokens": 65408,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 67495
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "warm",
+              "stage": "warm-answer",
+              "elapsedMs": 1883.812030000001,
+              "usage": {
+                "uncachedInputTokens": 232,
+                "cacheReadTokens": 67456,
+                "outputTokens": 198,
+                "cacheWriteTokens": 0
+              },
+              "requests": 1,
+              "summaryCalls": 0,
+              "toolCalls": 0,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 232,
+                    "outputTokens": 198,
+                    "cacheReadTokens": 67456,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 67886
+                  }
+                }
+              ]
+            }
+          ],
+          "totals": {
+            "uncachedInputTokens": 183907,
+            "cacheReadTokens": 1461376,
+            "cacheWriteTokens": 0,
+            "outputTokens": 3825,
+            "requests": 26,
+            "summaryCalls": 1,
+            "toolCalls": 21,
+            "recallCalls": 7,
+            "toolErrors": 0,
+            "elapsedMs": 56225.804468,
+            "inputTokens": 1645283,
+            "totalTokens": 1649108,
+            "cacheHitRatio": 0.888221661562175
+          }
+        },
+        "3082": {
+          "treatment": "native Basic without context kit",
+          "turns": [
+            {
+              "turn": "ingest-01",
+              "stage": "ingestion",
+              "elapsedMs": 3759.079054,
+              "usage": {
+                "uncachedInputTokens": 23785,
+                "cacheReadTokens": 5120,
+                "outputTokens": 169,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 171,
+                    "outputTokens": 165,
+                    "cacheReadTokens": 2432,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 2768
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23614,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 2688,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26306
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-02",
+              "stage": "ingestion",
+              "elapsedMs": 3006.0466109999998,
+              "usage": {
+                "uncachedInputTokens": 23760,
+                "cacheReadTokens": 52608,
+                "outputTokens": 84,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 165,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 26240,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 26485
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23595,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 26368,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 49967
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-03",
+              "stage": "ingestion",
+              "elapsedMs": 3656.5391120000004,
+              "usage": {
+                "uncachedInputTokens": 23617,
+                "cacheReadTokens": 99968,
+                "outputTokens": 84,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 146,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 49920,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 50146
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23471,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 50048,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 73523
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-04",
+              "stage": "ingestion",
+              "elapsedMs": 3352.2500870000003,
+              "usage": {
+                "uncachedInputTokens": 23646,
+                "cacheReadTokens": 147072,
+                "outputTokens": 84,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 150,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 73472,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 73702
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23496,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 73600,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97100
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-05",
+              "stage": "ingestion",
+              "elapsedMs": 4201.066675000002,
+              "usage": {
+                "uncachedInputTokens": 23692,
+                "cacheReadTokens": 194176,
+                "outputTokens": 84,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 175,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 97024,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 97279
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23517,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 97152,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 120673
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-06",
+              "stage": "ingestion",
+              "elapsedMs": 3222.4175719999985,
+              "usage": {
+                "uncachedInputTokens": 23621,
+                "cacheReadTokens": 241408,
+                "outputTokens": 84,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 196,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 120576,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 120852
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23425,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 120832,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 144261
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "ingest-07",
+              "stage": "ingestion",
+              "elapsedMs": 3668.2802789999987,
+              "usage": {
+                "uncachedInputTokens": 23780,
+                "cacheReadTokens": 288512,
+                "outputTokens": 84,
+                "cacheWriteTokens": 0
+              },
+              "requests": 2,
+              "summaryCalls": 0,
+              "toolCalls": 2,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 232,
+                    "outputTokens": 80,
+                    "cacheReadTokens": 144128,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 144440
+                  }
+                },
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 23548,
+                    "outputTokens": 4,
+                    "cacheReadTokens": 144384,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 167936
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "cold",
+              "stage": "cold-answer",
+              "elapsedMs": 4705.982425000002,
+              "usage": {
+                "uncachedInputTokens": 168,
+                "cacheReadTokens": 167936,
+                "outputTokens": 807,
+                "cacheWriteTokens": 0
+              },
+              "requests": 1,
+              "summaryCalls": 0,
+              "toolCalls": 0,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 168,
+                    "outputTokens": 807,
+                    "cacheReadTokens": 167936,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 168911
+                  }
+                }
+              ]
+            },
+            {
+              "turn": "warm",
+              "stage": "warm-answer",
+              "elapsedMs": 2542.1009829999966,
+              "usage": {
+                "uncachedInputTokens": 272,
+                "cacheReadTokens": 168832,
+                "outputTokens": 196,
+                "cacheWriteTokens": 0
+              },
+              "requests": 1,
+              "summaryCalls": 0,
+              "toolCalls": 0,
+              "recallCalls": 0,
+              "toolErrors": 0,
+              "usageRows": [
+                {
+                  "type": "assistant/message",
+                  "usage": {
+                    "inputTokens": 272,
+                    "outputTokens": 196,
+                    "cacheReadTokens": 168832,
+                    "cacheWriteTokens": 0,
+                    "totalTokens": 169300
+                  }
+                }
+              ]
+            }
+          ],
+          "totals": {
+            "uncachedInputTokens": 166341,
+            "cacheReadTokens": 1365632,
+            "cacheWriteTokens": 0,
+            "outputTokens": 1676,
+            "requests": 16,
+            "summaryCalls": 0,
+            "toolCalls": 14,
+            "recallCalls": 0,
+            "toolErrors": 0,
+            "elapsedMs": 32113.762797999996,
+            "inputTokens": 1531973,
+            "totalTokens": 1533649,
+            "cacheHitRatio": 0.8914204101508316
+          }
+        }
+      }
+    }
+  ]
+}

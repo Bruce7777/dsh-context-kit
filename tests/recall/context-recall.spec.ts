@@ -20,7 +20,11 @@ import type { Config } from '../../src/recall/config.ts'
 
 interface Page {
   range: { startSeq: number; endSeq: number }
-  records: Array<{ seq: number; role: string; text: string; part: number; offset: number; isError?: boolean }>
+  records: Array<{
+    seq: number; role: string; text: string; part: number; offset: number; isError?: boolean
+    read?: { startSeq: number; part: number; offset: number }
+    truncated?: boolean
+  }>
   complete: boolean
   nextCursor?: string
   scannedEvents: number
@@ -154,6 +158,128 @@ describe('bounded original conversation recall', () => {
     expect(next.records[0]?.text).toContain('cross-boundary-needle')
     expect(next.scannedEvents).toBeLessThanOrEqual(2)
     expect(next.scannedCharacters).toBeLessThanOrEqual(1024)
+  })
+
+  it('searches fourteen ordinary large tool blocks in one default page and returns a complete matching JSON line', async () => {
+    const h = await harness()
+    const line = JSON.stringify({ category: 'target-entry', entries: Array.from({ length: 10 }, (_, index) => ({ id: `row-${index}`, quantity: index + 1, status: 'accepted' })) })
+    for (let index = 0; index < 14; index++) {
+      h.agent.session.append('tool/result', { turn: 1, step: 1, message: createToolResultMessage({
+        callId: ToolCallId(`large-${index}`), isError: false,
+        content: [{ type: 'text', text: `${'unrelated observation\n'.repeat(2400)}${index === 11 ? line + '\n' : ''}` }],
+      }) }, { surfaceOp: 'append' })
+    }
+    openCurrentStep(h.agent.session)
+    const read = vi.spyOn(h.ctx.sessionQuery, 'readSession')
+    const response = page(await h.call('context_search', { query: 'target-entry' }))
+    expect(response.complete).toBe(true)
+    expect(response.scannedCharacters).toBeGreaterThan(650_000)
+    expect(response.scannedCharacters).toBeLessThanOrEqual(1_048_576)
+    expect(response.records).toHaveLength(1)
+    expect(response.records[0]?.text).toBe(line)
+    expect(response.records[0]?.truncated).toBeUndefined()
+    expect(read).toHaveBeenCalledTimes(1)
+
+    // Reintroduce the old scan cap over the same immutable history.
+    await h.fiber.dispose()
+    await h.ctx.plugin(Recall, { maxScanCharacters: 65536 })
+    let cursor: string | undefined
+    let calls = 0
+    const found: string[] = []
+    do {
+      const previousCap = page(await h.call('context_search', { query: 'target-entry', ...cursor === undefined ? {} : { cursor } }))
+      found.push(...previousCap.records.map(record => record.text))
+      cursor = previousCap.nextCursor
+      calls += 1
+      expect(calls).toBeLessThanOrEqual(12)
+    } while (cursor !== undefined)
+    expect(calls).toBe(12)
+    expect(found).toEqual([line])
+  })
+
+  it('returns every separated match in a text block and exposes exact read arguments for a distant text part', async () => {
+    const h = await harness()
+    const session = h.agent.session
+    const prefix = '🙂 unrelated text\n'.repeat(4500)
+    const first = JSON.stringify({ category: 'matched-record', value: 'first' })
+    const second = JSON.stringify({ category: 'matched-record', value: 'second' })
+    const original = `${prefix}${first}\n${'other line\n'.repeat(300)}${second}\n`
+    const seq = session.append('user/message', createUserMessage({
+      source: { kind: 'user' }, content: [{ type: 'text', text: 'intro' }, { type: 'text', text: original }],
+    }), { surfaceOp: 'append' }).seq
+    openCurrentStep(session)
+    const found = page(await h.call('context_search', { query: 'matched-record' }))
+    expect(found.complete).toBe(true)
+    expect(found.records.map(record => record.text)).toEqual([first, second])
+    const hit = found.records[0]
+    expect(hit?.read).toEqual({ startSeq: seq, part: 1, offset: prefix.length })
+    const expanded = page(await h.call('context_read', hit?.read))
+    expect(expanded.records[0]).toMatchObject({ seq, part: 1, offset: prefix.length })
+    expect(expanded.records.map(record => record.text).join('')).toBe(original.slice(prefix.length))
+  })
+
+  it('resumes a search cursor without repeating its explicit range and still rejects a changed range', async () => {
+    const h = await harness({ maxScanCharacters: 1024 })
+    user(h.agent.session, 'outside range')
+    const seq = user(h.agent.session, 'a'.repeat(1500) + '\nneedle located\n')
+    openCurrentStep(h.agent.session)
+    const first = page(await h.call('context_search', { query: 'needle', startSeq: seq, endSeq: seq }))
+    const next = page(await h.call('context_search', { query: 'needle', cursor: first.nextCursor }))
+    expect(next.range).toEqual({ startSeq: seq, endSeq: seq })
+    expect(next.records[0]?.text).toBe('needle located')
+    expect(code(await h.call('context_search', { query: 'needle', startSeq: 0, cursor: first.nextCursor }))).toBe('CONTEXT_RECALL_INVALID_CURSOR')
+  })
+
+  it('reports the available original range and rejects ambiguous or invalid text locations', async () => {
+    const h = await harness({ maxOutputTokens: 256, maxOutputBytes: 1024 })
+    const seq = user(h.agent.session, '🙂' + 'x'.repeat(2000))
+    openCurrentStep(h.agent.session)
+    const boundary = h.ctx.agents.turnBoundaryOf(h.agent.session).lastStepStartSeq
+    const invalidRange = await h.call('context_search', { query: 'x', endSeq: 400 })
+    expect(code(invalidRange)).toBe('CONTEXT_RECALL_INVALID_RANGE')
+    expect(content(invalidRange)).toContain(`0–${Number(boundary) - 1}`)
+    expect(content(invalidRange)).toContain('omit')
+    const first = page(await h.call('context_read', { startSeq: seq }))
+    for (const location of [
+      { offset: 1 }, { offset: -1 }, { part: 1 }, { offset: 9000 },
+      { endSeq: seq + 1, part: 0 },
+    ]) {
+      expect(code(await h.call('context_read', { startSeq: seq, ...location }))).toBe('CONTEXT_RECALL_INVALID_POSITION')
+    }
+    expect(code(await h.call('context_read', { startSeq: seq, cursor: first.nextCursor, offset: 0 }))).toBe('CONTEXT_RECALL_INVALID_POSITION')
+  })
+
+  it('keeps later matches reachable when long snippets exhaust the complete-result budget', async () => {
+    const h = await harness({ maxOutputTokens: 256, maxOutputBytes: 1024 })
+    const lines = Array.from({ length: 3 }, (_, index) => `needle-${index} ${'🙂 details '.repeat(180)}`)
+    user(h.agent.session, lines.join('\n'))
+    openCurrentStep(h.agent.session)
+    let cursor: string | undefined
+    const found: string[] = []
+    do {
+      const result = await h.call('context_search', { query: 'needle-', ...cursor === undefined ? {} : { cursor } })
+      const rendered = content(result)
+      expect(Buffer.byteLength(rendered, 'utf8')).toBeLessThanOrEqual(1024)
+      expect(h.ctx.tokenMeter.estimateMessage(createToolResultMessage({ callId: ToolCallId('measured-search'), content: [{ type: 'text', text: rendered }], isError: false }))).toBeLessThanOrEqual(256)
+      const current = page(result)
+      for (const record of current.records) {
+        expect(record.truncated).toBe(true)
+        expect(record.read).toBeDefined()
+        found.push(record.text.slice(0, 8))
+      }
+      cursor = current.nextCursor
+      expect(found.length).toBeLessThanOrEqual(3)
+    } while (cursor !== undefined)
+    expect(found).toEqual(['needle-0', 'needle-1', 'needle-2'])
+  })
+
+  it('keeps search locations between Unicode scalars even for a literal matching one surrogate code unit', async () => {
+    const h = await harness()
+    user(h.agent.session, 'x'.repeat(600) + '🙂 retained suffix')
+    openCurrentStep(h.agent.session)
+    const found = page(await h.call('context_search', { query: '\uDE42' }))
+    expect(found.records[0]).toMatchObject({ offset: 600, text: '🙂 retained suffix' })
+    expect(page(await h.call('context_read', found.records[0]?.read)).records[0]?.text).toBe('🙂 retained suffix')
   })
 
   it('finishes in one page when the complete result fits without continuation metadata', async () => {

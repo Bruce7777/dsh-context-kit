@@ -7,7 +7,7 @@ This independent MIT package contains two Cordis plugins. The current distributi
 Install the versioned prebuilt archive stored in this repository:
 
 ```sh
-dsh plugin --profile web add https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.0.tgz
+dsh plugin --profile web add https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.1.tgz
 ```
 
 The archive includes ESM runtime files, TypeScript declarations, bundle metadata, locales and documentation. It has no install-time lifecycle build. The source repository keeps its development build commands; a Git shorthand source dependency can require package-manager build approval, so it is not the documented one-command path.
@@ -29,9 +29,9 @@ pnpm pack --pack-destination release-assets
 
 ```sh
 cd release-assets
-shasum -a 256 dsh-context-kit-0.1.0.tgz > dsh-context-kit-0.1.0.tgz.sha256
+shasum -a 256 dsh-context-kit-0.1.1.tgz > dsh-context-kit-0.1.1.tgz.sha256
 cd ..
-pnpm run verify:install ./release-assets/dsh-context-kit-0.1.0.tgz
+pnpm run verify:install ./release-assets/dsh-context-kit-0.1.1.tgz
 ```
 
 Only selected source, synthetic tests, public aggregate reports and release files belong in Git. `.artifacts/`, credentials, user Session content, local profiles and development dependencies are excluded. Review staged paths and archive contents before uploading. Never overwrite an archive version after public release; increment `package.json` and publish a new version for changed release contents.
