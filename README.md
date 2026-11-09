@@ -16,6 +16,8 @@ DeepSeek Harness 的上下文预算压缩和原文召回套件。一个可安装
 dsh plugin --profile web add https://raw.githubusercontent.com/Bruce7777/dsh-context-kit/main/release-assets/dsh-context-kit-0.1.0.tgz
 ```
 
+2026-11-09 已从上述公开 URL 验证安装、启动和卸载恢复，见[发布验收记录](docs/test-results.zh.md#github-发布验收2026-11-09)。需要固定 Git 版本时，可将 URL 中的 `main` 换成 `v0.1.0`。
+
 安装到其他 profile 时，将 `web` 替换为实际名称。使用独立 `DSH_HOME` 的实例需指定同一数据目录；Desktop 通过应用自己的插件管理入口安装该 URL。安装完成后，确认 `context-budget` 和 `context-recall` 已启用、`compaction-basic` 已禁用；未实时生效时重启对应实例。
 
 安装范围由 `DSH_HOME + profile` 决定。原始 Session 记录保留；首次启用及后续压缩可能产生冷缓存开销。详见[安装与配置教程](docs/installation.zh.md)。

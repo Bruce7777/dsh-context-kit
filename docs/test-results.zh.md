@@ -74,3 +74,5 @@ node tests/performance/policies.mjs
 ## GitHub 发布验收（2026-11-09）
 
 本次重新执行类型检查、构建和覆盖率测试：62 项全部通过，覆盖率与上表一致。安装复验脚本语法检查通过；本地预构建归档已在隔离的临时 DSH_HOME 完成安装、组合检查、headless 启动及卸载后 Basic 恢复。公开 GitHub URL 的下载与安装验收在上传后执行，其结果以仓库本页的后续记录为准；归档保留打包时的报告快照。npm 发布与插件市场收录不属于本次发布范围。
+
+公开 GitHub URL 已完成真实下载、安装、组合检查、headless 启动、卸载与 Basic 恢复，全部通过；独立临时 DSH_HOME 在验证后清理，未访问用户现有 profile。下载文件的 SHA-256 与仓库校验文件一致：`78548337eeb7bda462f82530e961a25d69351f37aefe3854a6e627c201c4fa6e`。复验命令为安装教程中的 `pnpm run verify:install <公开归档URL>`。
