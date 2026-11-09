@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Presupuesto de contexto",
+    "description": "Reduce el historial activo con compresión por presupuesto y recuperación limitada."
+  }
+}

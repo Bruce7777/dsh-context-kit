@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Context budget",
+    "description": "Reduce active history with budgeted compaction and bounded recall."
+  }
+}

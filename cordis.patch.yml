@@ -1,0 +1,8 @@
+- id: compaction-basic
+  disabled: true
+
+- insert:
+    - id: context-budget
+      name: 'dsh-context-kit/budgeted'
+    - id: context-recall
+      name: 'dsh-context-kit/recall'

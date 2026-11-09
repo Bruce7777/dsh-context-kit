@@ -1,0 +1,1306 @@
+{
+  "initial": [
+    {
+      "name": "context_read",
+      "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "startSeq": {
+            "type": "integer"
+          },
+          "endSeq": {
+            "type": "integer"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "startSeq"
+        ]
+      }
+    },
+    {
+      "name": "context_search",
+      "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "startSeq": {
+            "type": "integer"
+          },
+          "endSeq": {
+            "type": "integer"
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "inspect_build",
+      "description": "Read one fixed synthetic build record; each index is read once.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "index"
+        ]
+      }
+    }
+  ],
+  "changes": [
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "context_read",
+        "description": "Read this session's earlier text before guessing. Follow summary/prune refs. Inclusive seqs; end defaults to start. Continue with nextCursor and the same range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "startSeq"
+          ]
+        }
+      },
+      {
+        "name": "context_search",
+        "description": "Find a case-sensitive literal in this session's earlier text, including hidden originals. Read matching seqs with context_read. complete:false: continue nextCursor with the same query/range.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "startSeq": {
+              "type": "integer"
+            },
+            "endSeq": {
+              "type": "integer"
+            },
+            "cursor": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        }
+      },
+      {
+        "name": "inspect_build",
+        "description": "Read one fixed synthetic build record; each index is read once.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "index"
+          ]
+        }
+      }
+    ]
+  ]
+}

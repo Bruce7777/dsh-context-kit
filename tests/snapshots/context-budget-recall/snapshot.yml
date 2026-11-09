@@ -1,0 +1,9 @@
+version: 1
+scenario: context-budget-recall
+profile: headless
+composition: context-budget-recall
+recording: authored
+header:
+  class: context-budget-recall
+  pin: true
+  changes: 20

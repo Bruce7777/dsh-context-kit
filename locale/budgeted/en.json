@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Budgeted compaction",
+    "description": "Reduce active conversation history in batches while retaining original history for recall."
+  }
+}

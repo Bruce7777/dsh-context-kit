@@ -1,0 +1,130 @@
+{
+  "name": "dsh-context-kit",
+  "version": "0.1.0",
+  "description": "Budgeted, recallable context compression for DeepSeek Harness.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bruce7777/dsh-context-kit.git"
+  },
+  "homepage": "https://github.com/Bruce7777/dsh-context-kit#readme",
+  "bugs": {
+    "url": "https://github.com/Bruce7777/dsh-context-kit/issues"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./budgeted": {
+      "types": "./dist/budgeted/index.d.ts",
+      "import": "./dist/budgeted/index.js"
+    },
+    "./recall": {
+      "types": "./dist/recall/index.d.ts",
+      "import": "./dist/recall/index.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./budgeted/locale/*.json": "./locale/budgeted/*.json",
+    "./recall/locale/*.json": "./locale/recall/*.json"
+  },
+  "files": [
+    "dist",
+    "cordis.patch.yml",
+    "locale",
+    "README.md",
+    "README.zh.md",
+    "README.en.md",
+    "docs",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.2-rc.1"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "context-compression",
+    "token-budget",
+    "memory",
+    "recall"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --exclude \"**/*.e2e.ts\"",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
+    "test:coverage": "vitest run --coverage --exclude \"**/*.e2e.ts\"",
+    "verify:install": "node scripts/verify-install.mjs",
+    "prepack": "pnpm run build"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.1.0",
+    "@deepseek-ai/dsh-agent": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-commands": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-compaction": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-compaction-basic": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-compaction-tool-result-pruner": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-projection": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-query": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-system-prompt": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-token-meter": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tools": "0.2.2-rc.1"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-util-values": "0.2.2-rc.1",
+    "@deepseek-ai/schemastery": "3.19.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.1.0",
+    "@deepseek-ai/dsh": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-agent": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-agent-loop": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-agent-loop-testkit": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-bash-local": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-commands": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-compaction": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-compaction-basic": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-compaction-tool-result-pruner": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm-deepseek-api-key": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-llm-replay": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-persistence-jsonl": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-projection": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-query": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-query-sqlite": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-session-snapshot": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-shell-env": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-subprocess-local": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-system-prompt": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-token-meter": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tool-bash": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tool-executor-native": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tool-fs": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tool-testkit": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-tools": "0.2.2-rc.1",
+    "@types/node": "^24.0.0",
+    "@vitest/coverage-v8": "^4.1.11",
+    "tsdown": "^0.22.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.11"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
