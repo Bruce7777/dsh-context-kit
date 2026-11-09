@@ -1,0 +1,109 @@
+{
+  "scope": "fixed_equal_excerpts_and_outline; not full-manuscript assessment",
+  "judges": "Two fresh isolated AI readers with opposite AB/BA order; not human judges or a statistical non-inferiority trial.",
+  "primaryWindows": [
+    [
+      1,
+      2
+    ],
+    [
+      23,
+      24
+    ],
+    [
+      47,
+      48
+    ]
+  ],
+  "supplementaryWindow": [
+    44,
+    45,
+    46
+  ],
+  "equalHanCapsPerWindow": [
+    3874,
+    3470,
+    3821,
+    4209
+  ],
+  "equalOutlineHanCap": 6000,
+  "samplingDisclosures": [
+    "Conservative bounded excerpts were chosen without claiming an exact-tokenizer proof that full manuscripts exceed capacity.",
+    "Before any reader, a merged44–48-prefix truncation was corrected by separating primary47–48 and supplementary44–46; no prose was selected or edited manually, no duplicate chapters were added. This correction is disclosed rather than described as fully preregistered.",
+    "Readers loaded the anonymous file in sequential local chunks rather than a single API user message.",
+    "Independent literary evaluation costs are outside these DeepSeek author-Session usage totals."
+  ],
+  "weights": {
+    "engagement": 25,
+    "causality_pacing": 20,
+    "characters_relationships": 25,
+    "dialogue": 15,
+    "prose": 15
+  },
+  "readers": [
+    {
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "scores": {
+        "candidate": {
+          "total100": 80.5,
+          "dimensions0to5": {
+            "engagement": 4,
+            "causality_pacing": 3.5,
+            "characters_relationships": 4.5,
+            "dialogue": 4,
+            "prose": 4
+          }
+        },
+        "baseline": {
+          "total100": 72.5,
+          "dimensions0to5": {
+            "engagement": 4,
+            "causality_pacing": 3.5,
+            "characters_relationships": 3.5,
+            "dialogue": 3.5,
+            "prose": 3.5
+          }
+        }
+      },
+      "preference": "candidate"
+    },
+    {
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "scores": {
+        "candidate": {
+          "total100": 86.5,
+          "dimensions0to5": {
+            "engagement": 4.5,
+            "causality_pacing": 4.0,
+            "characters_relationships": 4.5,
+            "dialogue": 4.0,
+            "prose": 4.5
+          }
+        },
+        "baseline": {
+          "total100": 75.0,
+          "dimensions0to5": {
+            "engagement": 4.0,
+            "causality_pacing": 3.5,
+            "characters_relationships": 4.0,
+            "dialogue": 3.5,
+            "prose": 3.5
+          }
+        }
+      },
+      "preference": "candidate"
+    }
+  ],
+  "literalQuotesVerified": 72,
+  "meanScores": {
+    "candidate": 83.5,
+    "baseline": 73.75
+  },
+  "verdict": "Both orders favor the candidate on supplied excerpts. Different evolving plots, unequal delivered length and additional revision work prevent a causal or general quality-improvement claim."
+}

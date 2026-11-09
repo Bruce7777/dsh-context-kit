@@ -1,0 +1,202 @@
+{
+  "date": "2026-11-09",
+  "version": "0.1.1",
+  "dshVersion": "0.2.2-rc.1",
+  "nodeVersion": "24.15.0",
+  "model": "deepseek-official/deepseek-flash",
+  "mainReasoningEffort": "max",
+  "taskRounds": 80,
+  "chaptersPerLane": 48,
+  "currency": "CNY",
+  "feeStatus": "KNOWN_USAGE_ONLY; failed transport usage unavailable. Not a complete provider invoice or an exact whole-run savings claim.",
+  "completeFeeAuditThrough": 52,
+  "pricesSource": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "timingScope": "Source turn/start to turn/end, summed; stage53 candidate sums failed+retry turns. Full-run timing includes host sleep and cannot establish relative performance; use separate non-incident windows.",
+  "lanes": {
+    "candidate": {
+      "receivedUsage": {
+        "calls": 1013,
+        "usage": {
+          "inputTokens": 1387572,
+          "cacheReadTokens": 89581056,
+          "cacheWriteTokens": 0,
+          "outputTokens": 1036471
+        },
+        "knownCostCny": "8.2914228"
+      },
+      "byPurpose": {
+        "main": {
+          "calls": 997,
+          "usage": {
+            "inputTokens": 1379604,
+            "cacheReadTokens": 88188544,
+            "cacheWriteTokens": 0,
+            "outputTokens": 955462
+          },
+          "knownCostCny": "7.91280484"
+        },
+        "summary": {
+          "calls": 16,
+          "usage": {
+            "inputTokens": 7968,
+            "cacheReadTokens": 1392512,
+            "cacheWriteTokens": 0,
+            "outputTokens": 81009
+          },
+          "knownCostCny": "0.37861796"
+        }
+      },
+      "phases": {
+        "completePrefix": {
+          "calls": 532,
+          "usage": {
+            "inputTokens": 688083,
+            "cacheReadTokens": 45901568,
+            "cacheWriteTokens": 0,
+            "outputTokens": 595792
+          },
+          "knownCostCny": "4.95562804",
+          "sourceExecutionMs": 4913267
+        },
+        "incidentRound": {
+          "calls": 12,
+          "usage": {
+            "inputTokens": 13251,
+            "cacheReadTokens": 1055744,
+            "cacheWriteTokens": 0,
+            "outputTokens": 15556
+          },
+          "knownCostCny": "0.09658988",
+          "sourceExecutionMs": 348931
+        },
+        "recoveredTail": {
+          "calls": 469,
+          "usage": {
+            "inputTokens": 686238,
+            "cacheReadTokens": 42623744,
+            "cacheWriteTokens": 0,
+            "outputTokens": 425123
+          },
+          "knownCostCny": "3.23920488",
+          "sourceExecutionMs": 3399241
+        }
+      },
+      "unknownAttemptCount": 7,
+      "unknownAttemptsWithPartialStream": 1,
+      "sourceThroughSeq": 6482,
+      "sourcePrefixSha256": "5c2a52dc74e6012c178d63cb4cf2181fb0d5b34a8870679a46cfed74445d3692",
+      "completedTaskRounds": 80,
+      "attemptedUserTurns": 81,
+      "successfulUserTurns": 80,
+      "chapters": 48,
+      "proseHan": 78497,
+      "chaptersBelow1800Han": 36,
+      "mechanical80Complete": true,
+      "firstSummaryTaskRound": 6,
+      "completedTaskRoundsAfterFirstSummary": 74,
+      "cacheReadTokenFraction": 0.9847466975098272,
+      "toolErrors": 8,
+      "recallToolCalls": 13,
+      "knownCnyPer10000ProseHan": "1.056272570926277437354293795"
+    },
+    "baseline": {
+      "receivedUsage": {
+        "calls": 715,
+        "usage": {
+          "inputTokens": 1026766,
+          "cacheReadTokens": 272060928,
+          "cacheWriteTokens": 0,
+          "outputTokens": 584089
+        },
+        "knownCostCny": "9.58469944"
+      },
+      "byPurpose": {
+        "main": {
+          "calls": 714,
+          "usage": {
+            "inputTokens": 529681,
+            "cacheReadTokens": 272060928,
+            "cacheWriteTokens": 0,
+            "outputTokens": 581391
+          },
+          "knownCostCny": "9.07682244"
+        },
+        "summary": {
+          "calls": 1,
+          "usage": {
+            "inputTokens": 497085,
+            "cacheReadTokens": 0,
+            "cacheWriteTokens": 0,
+            "outputTokens": 2698
+          },
+          "knownCostCny": "0.507877"
+        }
+      },
+      "phases": {
+        "completePrefix": {
+          "calls": 505,
+          "usage": {
+            "inputTokens": 228743,
+            "cacheReadTokens": 152489472,
+            "cacheWriteTokens": 0,
+            "outputTokens": 430651
+          },
+          "knownCostCny": "5.78149532",
+          "sourceExecutionMs": 3790236
+        },
+        "incidentRound": {
+          "calls": 14,
+          "usage": {
+            "inputTokens": 9192,
+            "cacheReadTokens": 8089088,
+            "cacheWriteTokens": 0,
+            "outputTokens": 8783
+          },
+          "knownCostCny": "0.20610576",
+          "sourceExecutionMs": 4547688
+        },
+        "recoveredTail": {
+          "calls": 196,
+          "usage": {
+            "inputTokens": 788831,
+            "cacheReadTokens": 111482368,
+            "cacheWriteTokens": 0,
+            "outputTokens": 144655
+          },
+          "knownCostCny": "3.59709836",
+          "sourceExecutionMs": 1339058
+        }
+      },
+      "unknownAttemptCount": 7,
+      "unknownAttemptsWithPartialStream": 2,
+      "sourceThroughSeq": 4654,
+      "sourcePrefixSha256": "535dfa9ea34749e113796568389a44b1ba722fffb05188c7f8808dbedf1b087a",
+      "completedTaskRounds": 80,
+      "attemptedUserTurns": 80,
+      "successfulUserTurns": 80,
+      "chapters": 48,
+      "proseHan": 95747,
+      "chaptersBelow1800Han": 13,
+      "mechanical80Complete": true,
+      "firstSummaryTaskRound": 74,
+      "completedTaskRoundsAfterFirstSummary": 6,
+      "cacheReadTokenFraction": 0.9962401601296615,
+      "toolErrors": 6,
+      "recallToolCalls": 0,
+      "knownCnyPer10000ProseHan": "1.001044360658819597480861019"
+    }
+  },
+  "cleanup": {
+    "cleanupCompleted": true,
+    "credentialValueVerified": true,
+    "temporaryCredentialBackupRemoved": true
+  },
+  "protocolWallMs": 14705494.0,
+  "incident": {
+    "taskRound": 53,
+    "hostSleepSecondsObserved": 4161,
+    "candidateFailedThenRetriedSamePromptInSameSession": true,
+    "baselineOriginalPromptEventuallyCompleted": true,
+    "unknownUsageNotZero": true
+  }
+}

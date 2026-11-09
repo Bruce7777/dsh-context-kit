@@ -1,0 +1,932 @@
+{
+  "scope": "Independent metadata-only offline audit of the completed 80-round experiment. Monetary totals are known-usage subtotals under the supplied price cards, not complete invoices when attempts lack usage. No book/reasoning text or judging material is evaluated or emitted.",
+  "rounds": 80,
+  "pricing": {
+    "currency": "CNY",
+    "unit": "per-million-tokens",
+    "offPeak": {
+      "cacheRead": "0.02",
+      "uncachedInput": "1",
+      "output": "4"
+    },
+    "peakMultiplier": "2",
+    "assignment": "Explicit driver per-call tier based on latest delivery-accepted time estimate; crossing calls retain supplied lower/upper timing bounds. No wall-clock band inference by this audit.",
+    "smallestFeeQuantumCny": "0.00000001",
+    "reasoningAlreadyIncludedInOutput": true
+  },
+  "lanes": {
+    "3080": {
+      "knownSubtotal": {
+        "receivedUsageCalls": 1013,
+        "knownUsage": {
+          "inputTokens": 1387572,
+          "cacheReadTokens": 89581056,
+          "cacheWriteTokens": 0,
+          "outputTokens": 1036471,
+          "allInputTokens": 90968628,
+          "allTokens": 92005099
+        },
+        "knownCostCny": "8.2914228",
+        "knownCostComponentsCny": {
+          "uncachedInputCny": "1.526554",
+          "cacheReadCny": "1.9534848",
+          "cacheWriteCny": "0",
+          "outputCny": "4.811384"
+        },
+        "knownTimingCostRangeCny": {
+          "lower": "8.27577172",
+          "upper": "8.2914228"
+        },
+        "unpricedAttemptOrCallRecords": 7,
+        "missingUsageAssistantMessages": 0,
+        "unknownAttemptRecords": 7,
+        "unknownWithBodyDeltaMetadata": 1,
+        "attemptStreamUsageRecords": 0,
+        "receivedUsageOnly": true,
+        "fullRecordedCostKnown": false,
+        "fullRecordedCostCny": null,
+        "knownCachedInputFraction": "0.98474669750982723406579244000470140101486415734444186626624730451029776990810502",
+        "driverReportedKnownCostCny": "8.291422800000001",
+        "driverFloatingPointDifferenceCny": "0.000000000000001",
+        "knownCnyPer10000FinalHan": "1.0562725709262774373542937946673121265780857867179637438373441023223817470731366"
+      },
+      "byPurpose": {
+        "main": {
+          "receivedUsageCalls": 997,
+          "knownUsage": {
+            "inputTokens": 1379604,
+            "cacheReadTokens": 88188544,
+            "cacheWriteTokens": 0,
+            "outputTokens": 955462,
+            "allInputTokens": 89568148,
+            "allTokens": 90523610
+          },
+          "knownCostCny": "7.91280484",
+          "knownCostComponentsCny": {
+            "uncachedInputCny": "1.518077",
+            "cacheReadCny": "1.92393984",
+            "cacheWriteCny": "0",
+            "outputCny": "4.470788"
+          },
+          "knownTimingCostRangeCny": {
+            "lower": "7.89715376",
+            "upper": "7.91280484"
+          }
+        },
+        "summary": {
+          "receivedUsageCalls": 16,
+          "knownUsage": {
+            "inputTokens": 7968,
+            "cacheReadTokens": 1392512,
+            "cacheWriteTokens": 0,
+            "outputTokens": 81009,
+            "allInputTokens": 1400480,
+            "allTokens": 1481489
+          },
+          "knownCostCny": "0.37861796",
+          "knownCostComponentsCny": {
+            "uncachedInputCny": "0.008477",
+            "cacheReadCny": "0.02954496",
+            "cacheWriteCny": "0",
+            "outputCny": "0.340596"
+          },
+          "knownTimingCostRangeCny": {
+            "lower": "0.37861796",
+            "upper": "0.37861796"
+          }
+        }
+      },
+      "phases": {
+        "1-52": {
+          "receivedUsageCalls": 532,
+          "knownUsage": {
+            "inputTokens": 688083,
+            "cacheReadTokens": 45901568,
+            "cacheWriteTokens": 0,
+            "outputTokens": 595792,
+            "allInputTokens": 46589651,
+            "allTokens": 47185443
+          },
+          "knownCostCny": "4.95562804",
+          "knownCostComponentsCny": {
+            "uncachedInputCny": "0.827065",
+            "cacheReadCny": "1.07989504",
+            "cacheWriteCny": "0",
+            "outputCny": "3.048668"
+          },
+          "knownTimingCostRangeCny": {
+            "lower": "4.93997696",
+            "upper": "4.95562804"
+          },
+          "logicalRounds": 52,
+          "unpricedAttemptOrCallRecords": 0,
+          "unknownReasons": {},
+          "recordedUsageCostComplete": true,
+          "fullRecordedCostCny": "4.95562804",
+          "byPurpose": {
+            "main": {
+              "receivedUsageCalls": 524,
+              "knownUsage": {
+                "inputTokens": 684095,
+                "cacheReadTokens": 45190016,
+                "cacheWriteTokens": 0,
+                "outputTokens": 559852,
+                "allInputTokens": 45874111,
+                "allTokens": 46433963
+              },
+              "knownCostCny": "4.77488528",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0.822568",
+                "cacheReadCny": "1.06396928",
+                "cacheWriteCny": "0",
+                "outputCny": "2.888348"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "4.7592342",
+                "upper": "4.77488528"
+              }
+            },
+            "summary": {
+              "receivedUsageCalls": 8,
+              "knownUsage": {
+                "inputTokens": 3988,
+                "cacheReadTokens": 711552,
+                "cacheWriteTokens": 0,
+                "outputTokens": 35940,
+                "allInputTokens": 715540,
+                "allTokens": 751480
+              },
+              "knownCostCny": "0.18074276",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0.004497",
+                "cacheReadCny": "0.01592576",
+                "cacheWriteCny": "0",
+                "outputCny": "0.16032"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "0.18074276",
+                "upper": "0.18074276"
+              }
+            }
+          },
+          "sourceTurnTiming": {
+            "physicalTurns": 52,
+            "outcomes": {
+              "completed": 52
+            },
+            "sumStartToEndMs": 4913267,
+            "byOutcome": {
+              "completed": {
+                "turns": 52,
+                "sumStartToEndMs": 4913267
+              }
+            },
+            "sleepIncidentIncluded": false,
+            "method": "Sum each actual turn/start-to-turn/end interval. Failed and retry intervals are distinct; no span across manual recovery gap."
+          },
+          "matchesKnownProof": true
+        },
+        "53": {
+          "receivedUsageCalls": 12,
+          "knownUsage": {
+            "inputTokens": 13251,
+            "cacheReadTokens": 1055744,
+            "cacheWriteTokens": 0,
+            "outputTokens": 15556,
+            "allInputTokens": 1068995,
+            "allTokens": 1084551
+          },
+          "knownCostCny": "0.09658988",
+          "knownCostComponentsCny": {
+            "uncachedInputCny": "0.013251",
+            "cacheReadCny": "0.02111488",
+            "cacheWriteCny": "0",
+            "outputCny": "0.062224"
+          },
+          "knownTimingCostRangeCny": {
+            "lower": "0.09658988",
+            "upper": "0.09658988"
+          },
+          "logicalRounds": 1,
+          "unpricedAttemptOrCallRecords": 7,
+          "unknownReasons": {
+            "unsupported_attempt_without_usage": 7
+          },
+          "recordedUsageCostComplete": false,
+          "fullRecordedCostCny": null,
+          "byPurpose": {
+            "main": {
+              "receivedUsageCalls": 12,
+              "knownUsage": {
+                "inputTokens": 13251,
+                "cacheReadTokens": 1055744,
+                "cacheWriteTokens": 0,
+                "outputTokens": 15556,
+                "allInputTokens": 1068995,
+                "allTokens": 1084551
+              },
+              "knownCostCny": "0.09658988",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0.013251",
+                "cacheReadCny": "0.02111488",
+                "cacheWriteCny": "0",
+                "outputCny": "0.062224"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "0.09658988",
+                "upper": "0.09658988"
+              }
+            },
+            "summary": {
+              "receivedUsageCalls": 0,
+              "knownUsage": {
+                "inputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0,
+                "outputTokens": 0,
+                "allInputTokens": 0,
+                "allTokens": 0
+              },
+              "knownCostCny": "0",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0",
+                "cacheReadCny": "0",
+                "cacheWriteCny": "0",
+                "outputCny": "0"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "0",
+                "upper": "0"
+              }
+            }
+          },
+          "sourceTurnTiming": {
+            "physicalTurns": 2,
+            "outcomes": {
+              "error": 1,
+              "completed": 1
+            },
+            "sumStartToEndMs": 348931,
+            "byOutcome": {
+              "error": {
+                "turns": 1,
+                "sumStartToEndMs": 334656
+              },
+              "completed": {
+                "turns": 1,
+                "sumStartToEndMs": 14275
+              }
+            },
+            "sleepIncidentIncluded": true,
+            "method": "Sum each actual turn/start-to-turn/end interval. Failed and retry intervals are distinct; no span across manual recovery gap."
+          },
+          "matchesKnownProof": true
+        },
+        "54-80": {
+          "receivedUsageCalls": 469,
+          "knownUsage": {
+            "inputTokens": 686238,
+            "cacheReadTokens": 42623744,
+            "cacheWriteTokens": 0,
+            "outputTokens": 425123,
+            "allInputTokens": 43309982,
+            "allTokens": 43735105
+          },
+          "knownCostCny": "3.23920488",
+          "knownCostComponentsCny": {
+            "uncachedInputCny": "0.686238",
+            "cacheReadCny": "0.85247488",
+            "cacheWriteCny": "0",
+            "outputCny": "1.700492"
+          },
+          "knownTimingCostRangeCny": {
+            "lower": "3.23920488",
+            "upper": "3.23920488"
+          },
+          "logicalRounds": 27,
+          "unpricedAttemptOrCallRecords": 0,
+          "unknownReasons": {},
+          "recordedUsageCostComplete": true,
+          "fullRecordedCostCny": "3.23920488",
+          "byPurpose": {
+            "main": {
+              "receivedUsageCalls": 461,
+              "knownUsage": {
+                "inputTokens": 682258,
+                "cacheReadTokens": 41942784,
+                "cacheWriteTokens": 0,
+                "outputTokens": 380054,
+                "allInputTokens": 42625042,
+                "allTokens": 43005096
+              },
+              "knownCostCny": "3.04132968",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0.682258",
+                "cacheReadCny": "0.83885568",
+                "cacheWriteCny": "0",
+                "outputCny": "1.520216"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "3.04132968",
+                "upper": "3.04132968"
+              }
+            },
+            "summary": {
+              "receivedUsageCalls": 8,
+              "knownUsage": {
+                "inputTokens": 3980,
+                "cacheReadTokens": 680960,
+                "cacheWriteTokens": 0,
+                "outputTokens": 45069,
+                "allInputTokens": 684940,
+                "allTokens": 730009
+              },
+              "knownCostCny": "0.1978752",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0.00398",
+                "cacheReadCny": "0.0136192",
+                "cacheWriteCny": "0",
+                "outputCny": "0.180276"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "0.1978752",
+                "upper": "0.1978752"
+              }
+            }
+          },
+          "sourceTurnTiming": {
+            "physicalTurns": 27,
+            "outcomes": {
+              "completed": 27
+            },
+            "sumStartToEndMs": 3399241,
+            "byOutcome": {
+              "completed": {
+                "turns": 27,
+                "sumStartToEndMs": 3399241
+              }
+            },
+            "sleepIncidentIncluded": false,
+            "method": "Sum each actual turn/start-to-turn/end interval. Failed and retry intervals are distinct; no span across manual recovery gap."
+          },
+          "matchesKnownProof": true
+        }
+      },
+      "summaryLifecycle": {
+        "starts": 16,
+        "summaries": 16,
+        "ends": 16,
+        "matched": true,
+        "failedEndRecords": 0,
+        "firstSummaryTaskRound": 6,
+        "summaryOutputFeeIncludedCny": "0.340596"
+      },
+      "toolCalls": {
+        "read": 288,
+        "working_directory": 4,
+        "write": 128,
+        "edit": 491,
+        "context_search": 12,
+        "context_read": 1
+      },
+      "toolErrorResults": 8,
+      "mechanicalDelivery": {
+        "completedLogicalRounds": 80,
+        "plannedChapters": 48,
+        "chapterFiles": 48,
+        "chapterFilesPresent": 48,
+        "headingsMatchFileNumbers": true,
+        "core80MechanicallyComplete": true,
+        "allRoundSnapshotsAndEventsAvailable": true,
+        "missingExpectedFileOccurrences": 0,
+        "snapshotIntegrityIssueCount": 0,
+        "finalHan": 78497,
+        "finalNonWhitespace": 101654,
+        "chapterHanMin": 1151,
+        "chapterHanMax": 2354,
+        "below1800Han": 36,
+        "above2800Han": 0,
+        "firstCommittedCompactionRound": 6,
+        "completedRoundsAfterFirstCompaction": 74,
+        "compressionObservationCountsSatisfied": true,
+        "qualityNotAssessed": true
+      },
+      "crosschecks": {
+        "consecutiveRawSeqFromZero": true,
+        "noOpenSourceTurn": true,
+        "logicalRoundsExactly1Through80": true,
+        "sameKnownCallSetAsDriverAndProof": true,
+        "sameUnknownAttemptSetAsProof": true,
+        "unknownPartialFlagsMatchProof": true,
+        "knownUsageTotalsMatchProof": true,
+        "knownCostMatchesProofExactly": true,
+        "allPhaseAggregatesMatchProof": true,
+        "purposeCostsMatchProofExactly": true,
+        "allKnownCallsMatchProofIndividually": true,
+        "driverCostMatchesAtFeeQuantum": true,
+        "driverBoundsMatchAtFeeQuantum": true,
+        "progressKnownUsageAndRequestsMatch": true,
+        "progressSourceElapsedMatches": true,
+        "compactionIdsMatchStartSummaryEnd": true,
+        "allKnownMainUsageMatchesStreamUsage": true,
+        "noBillingMetadataErrors": true
+      },
+      "rawPrefixHashMatchesProofByteForByte": true,
+      "moduleVerification": {
+        "complete52PrefixPassed": true,
+        "complete52KnownCalls": 532,
+        "complete52CostCny": "4.95562804",
+        "full80RejectedCode": "ATTEMPT_USAGE_UNSUPPORTED"
+      },
+      "metadataIssueCounts": {},
+      "scopeNote": "Unknown assistant/attempt records are not zero-cost calls. Known totals include main, summaries and every later refill. This lane does not have a complete 80-round bill."
+    },
+    "3082": {
+      "knownSubtotal": {
+        "receivedUsageCalls": 715,
+        "knownUsage": {
+          "inputTokens": 1026766,
+          "cacheReadTokens": 272060928,
+          "cacheWriteTokens": 0,
+          "outputTokens": 584089,
+          "allInputTokens": 273087694,
+          "allTokens": 273671783
+        },
+        "knownCostCny": "9.58469944",
+        "knownCostComponentsCny": {
+          "uncachedInputCny": "1.082958",
+          "cacheReadCny": "5.65292544",
+          "cacheWriteCny": "0",
+          "outputCny": "2.848816"
+        },
+        "knownTimingCostRangeCny": {
+          "lower": "9.5636974",
+          "upper": "9.58469944"
+        },
+        "unpricedAttemptOrCallRecords": 7,
+        "missingUsageAssistantMessages": 0,
+        "unknownAttemptRecords": 7,
+        "unknownWithBodyDeltaMetadata": 2,
+        "attemptStreamUsageRecords": 0,
+        "receivedUsageOnly": true,
+        "fullRecordedCostKnown": false,
+        "fullRecordedCostCny": null,
+        "knownCachedInputFraction": "0.99624016012966149986970851934470544102950314560860439211149514485262744940824759",
+        "driverReportedKnownCostCny": "9.584699439999998",
+        "driverFloatingPointDifferenceCny": "-0.000000000000002",
+        "knownCnyPer10000FinalHan": "1.0010443606588195974808610191442029515285074205980344031666788515567067375479127"
+      },
+      "byPurpose": {
+        "main": {
+          "receivedUsageCalls": 714,
+          "knownUsage": {
+            "inputTokens": 529681,
+            "cacheReadTokens": 272060928,
+            "cacheWriteTokens": 0,
+            "outputTokens": 581391,
+            "allInputTokens": 272590609,
+            "allTokens": 273172000
+          },
+          "knownCostCny": "9.07682244",
+          "knownCostComponentsCny": {
+            "uncachedInputCny": "0.585873",
+            "cacheReadCny": "5.65292544",
+            "cacheWriteCny": "0",
+            "outputCny": "2.838024"
+          },
+          "knownTimingCostRangeCny": {
+            "lower": "9.0558204",
+            "upper": "9.07682244"
+          }
+        },
+        "summary": {
+          "receivedUsageCalls": 1,
+          "knownUsage": {
+            "inputTokens": 497085,
+            "cacheReadTokens": 0,
+            "cacheWriteTokens": 0,
+            "outputTokens": 2698,
+            "allInputTokens": 497085,
+            "allTokens": 499783
+          },
+          "knownCostCny": "0.507877",
+          "knownCostComponentsCny": {
+            "uncachedInputCny": "0.497085",
+            "cacheReadCny": "0",
+            "cacheWriteCny": "0",
+            "outputCny": "0.010792"
+          },
+          "knownTimingCostRangeCny": {
+            "lower": "0.507877",
+            "upper": "0.507877"
+          }
+        }
+      },
+      "phases": {
+        "1-52": {
+          "receivedUsageCalls": 505,
+          "knownUsage": {
+            "inputTokens": 228743,
+            "cacheReadTokens": 152489472,
+            "cacheWriteTokens": 0,
+            "outputTokens": 430651,
+            "allInputTokens": 152718215,
+            "allTokens": 153148866
+          },
+          "knownCostCny": "5.78149532",
+          "knownCostComponentsCny": {
+            "uncachedInputCny": "0.284935",
+            "cacheReadCny": "3.26149632",
+            "cacheWriteCny": "0",
+            "outputCny": "2.235064"
+          },
+          "knownTimingCostRangeCny": {
+            "lower": "5.76049328",
+            "upper": "5.78149532"
+          },
+          "logicalRounds": 52,
+          "unpricedAttemptOrCallRecords": 0,
+          "unknownReasons": {},
+          "recordedUsageCostComplete": true,
+          "fullRecordedCostCny": "5.78149532",
+          "byPurpose": {
+            "main": {
+              "receivedUsageCalls": 505,
+              "knownUsage": {
+                "inputTokens": 228743,
+                "cacheReadTokens": 152489472,
+                "cacheWriteTokens": 0,
+                "outputTokens": 430651,
+                "allInputTokens": 152718215,
+                "allTokens": 153148866
+              },
+              "knownCostCny": "5.78149532",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0.284935",
+                "cacheReadCny": "3.26149632",
+                "cacheWriteCny": "0",
+                "outputCny": "2.235064"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "5.76049328",
+                "upper": "5.78149532"
+              }
+            },
+            "summary": {
+              "receivedUsageCalls": 0,
+              "knownUsage": {
+                "inputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0,
+                "outputTokens": 0,
+                "allInputTokens": 0,
+                "allTokens": 0
+              },
+              "knownCostCny": "0",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0",
+                "cacheReadCny": "0",
+                "cacheWriteCny": "0",
+                "outputCny": "0"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "0",
+                "upper": "0"
+              }
+            }
+          },
+          "sourceTurnTiming": {
+            "physicalTurns": 52,
+            "outcomes": {
+              "completed": 52
+            },
+            "sumStartToEndMs": 3790236,
+            "byOutcome": {
+              "completed": {
+                "turns": 52,
+                "sumStartToEndMs": 3790236
+              }
+            },
+            "sleepIncidentIncluded": false,
+            "method": "Sum each actual turn/start-to-turn/end interval. Failed and retry intervals are distinct; no span across manual recovery gap."
+          },
+          "matchesKnownProof": true
+        },
+        "53": {
+          "receivedUsageCalls": 14,
+          "knownUsage": {
+            "inputTokens": 9192,
+            "cacheReadTokens": 8089088,
+            "cacheWriteTokens": 0,
+            "outputTokens": 8783,
+            "allInputTokens": 8098280,
+            "allTokens": 8107063
+          },
+          "knownCostCny": "0.20610576",
+          "knownCostComponentsCny": {
+            "uncachedInputCny": "0.009192",
+            "cacheReadCny": "0.16178176",
+            "cacheWriteCny": "0",
+            "outputCny": "0.035132"
+          },
+          "knownTimingCostRangeCny": {
+            "lower": "0.20610576",
+            "upper": "0.20610576"
+          },
+          "logicalRounds": 1,
+          "unpricedAttemptOrCallRecords": 7,
+          "unknownReasons": {
+            "unsupported_attempt_without_usage": 7
+          },
+          "recordedUsageCostComplete": false,
+          "fullRecordedCostCny": null,
+          "byPurpose": {
+            "main": {
+              "receivedUsageCalls": 14,
+              "knownUsage": {
+                "inputTokens": 9192,
+                "cacheReadTokens": 8089088,
+                "cacheWriteTokens": 0,
+                "outputTokens": 8783,
+                "allInputTokens": 8098280,
+                "allTokens": 8107063
+              },
+              "knownCostCny": "0.20610576",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0.009192",
+                "cacheReadCny": "0.16178176",
+                "cacheWriteCny": "0",
+                "outputCny": "0.035132"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "0.20610576",
+                "upper": "0.20610576"
+              }
+            },
+            "summary": {
+              "receivedUsageCalls": 0,
+              "knownUsage": {
+                "inputTokens": 0,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0,
+                "outputTokens": 0,
+                "allInputTokens": 0,
+                "allTokens": 0
+              },
+              "knownCostCny": "0",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0",
+                "cacheReadCny": "0",
+                "cacheWriteCny": "0",
+                "outputCny": "0"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "0",
+                "upper": "0"
+              }
+            }
+          },
+          "sourceTurnTiming": {
+            "physicalTurns": 1,
+            "outcomes": {
+              "completed": 1
+            },
+            "sumStartToEndMs": 4547688,
+            "byOutcome": {
+              "completed": {
+                "turns": 1,
+                "sumStartToEndMs": 4547688
+              }
+            },
+            "sleepIncidentIncluded": true,
+            "method": "Sum each actual turn/start-to-turn/end interval. Failed and retry intervals are distinct; no span across manual recovery gap."
+          },
+          "matchesKnownProof": true
+        },
+        "54-80": {
+          "receivedUsageCalls": 196,
+          "knownUsage": {
+            "inputTokens": 788831,
+            "cacheReadTokens": 111482368,
+            "cacheWriteTokens": 0,
+            "outputTokens": 144655,
+            "allInputTokens": 112271199,
+            "allTokens": 112415854
+          },
+          "knownCostCny": "3.59709836",
+          "knownCostComponentsCny": {
+            "uncachedInputCny": "0.788831",
+            "cacheReadCny": "2.22964736",
+            "cacheWriteCny": "0",
+            "outputCny": "0.57862"
+          },
+          "knownTimingCostRangeCny": {
+            "lower": "3.59709836",
+            "upper": "3.59709836"
+          },
+          "logicalRounds": 27,
+          "unpricedAttemptOrCallRecords": 0,
+          "unknownReasons": {},
+          "recordedUsageCostComplete": true,
+          "fullRecordedCostCny": "3.59709836",
+          "byPurpose": {
+            "main": {
+              "receivedUsageCalls": 195,
+              "knownUsage": {
+                "inputTokens": 291746,
+                "cacheReadTokens": 111482368,
+                "cacheWriteTokens": 0,
+                "outputTokens": 141957,
+                "allInputTokens": 111774114,
+                "allTokens": 111916071
+              },
+              "knownCostCny": "3.08922136",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0.291746",
+                "cacheReadCny": "2.22964736",
+                "cacheWriteCny": "0",
+                "outputCny": "0.567828"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "3.08922136",
+                "upper": "3.08922136"
+              }
+            },
+            "summary": {
+              "receivedUsageCalls": 1,
+              "knownUsage": {
+                "inputTokens": 497085,
+                "cacheReadTokens": 0,
+                "cacheWriteTokens": 0,
+                "outputTokens": 2698,
+                "allInputTokens": 497085,
+                "allTokens": 499783
+              },
+              "knownCostCny": "0.507877",
+              "knownCostComponentsCny": {
+                "uncachedInputCny": "0.497085",
+                "cacheReadCny": "0",
+                "cacheWriteCny": "0",
+                "outputCny": "0.010792"
+              },
+              "knownTimingCostRangeCny": {
+                "lower": "0.507877",
+                "upper": "0.507877"
+              }
+            }
+          },
+          "sourceTurnTiming": {
+            "physicalTurns": 27,
+            "outcomes": {
+              "completed": 27
+            },
+            "sumStartToEndMs": 1339058,
+            "byOutcome": {
+              "completed": {
+                "turns": 27,
+                "sumStartToEndMs": 1339058
+              }
+            },
+            "sleepIncidentIncluded": false,
+            "method": "Sum each actual turn/start-to-turn/end interval. Failed and retry intervals are distinct; no span across manual recovery gap."
+          },
+          "matchesKnownProof": true
+        }
+      },
+      "summaryLifecycle": {
+        "starts": 1,
+        "summaries": 1,
+        "ends": 1,
+        "matched": true,
+        "failedEndRecords": 0,
+        "firstSummaryTaskRound": 74,
+        "summaryOutputFeeIncludedCny": "0.010792"
+      },
+      "toolCalls": {
+        "read": 182,
+        "working_directory": 1,
+        "write": 144,
+        "edit": 309
+      },
+      "toolErrorResults": 6,
+      "mechanicalDelivery": {
+        "completedLogicalRounds": 80,
+        "plannedChapters": 48,
+        "chapterFiles": 48,
+        "chapterFilesPresent": 48,
+        "headingsMatchFileNumbers": true,
+        "core80MechanicallyComplete": true,
+        "allRoundSnapshotsAndEventsAvailable": true,
+        "missingExpectedFileOccurrences": 0,
+        "snapshotIntegrityIssueCount": 0,
+        "finalHan": 95747,
+        "finalNonWhitespace": 123795,
+        "chapterHanMin": 1532,
+        "chapterHanMax": 2606,
+        "below1800Han": 13,
+        "above2800Han": 0,
+        "firstCommittedCompactionRound": 74,
+        "completedRoundsAfterFirstCompaction": 6,
+        "compressionObservationCountsSatisfied": false,
+        "qualityNotAssessed": true
+      },
+      "crosschecks": {
+        "consecutiveRawSeqFromZero": true,
+        "noOpenSourceTurn": true,
+        "logicalRoundsExactly1Through80": true,
+        "sameKnownCallSetAsDriverAndProof": true,
+        "sameUnknownAttemptSetAsProof": true,
+        "unknownPartialFlagsMatchProof": true,
+        "knownUsageTotalsMatchProof": true,
+        "knownCostMatchesProofExactly": true,
+        "allPhaseAggregatesMatchProof": true,
+        "purposeCostsMatchProofExactly": true,
+        "allKnownCallsMatchProofIndividually": true,
+        "driverCostMatchesAtFeeQuantum": true,
+        "driverBoundsMatchAtFeeQuantum": true,
+        "progressKnownUsageAndRequestsMatch": true,
+        "progressSourceElapsedMatches": true,
+        "compactionIdsMatchStartSummaryEnd": true,
+        "allKnownMainUsageMatchesStreamUsage": true,
+        "noBillingMetadataErrors": true
+      },
+      "rawPrefixHashMatchesProofByteForByte": true,
+      "moduleVerification": {
+        "complete52PrefixPassed": true,
+        "complete52KnownCalls": 505,
+        "complete52CostCny": "5.78149532",
+        "full80RejectedCode": "ATTEMPT_USAGE_UNSUPPORTED"
+      },
+      "metadataIssueCounts": {},
+      "scopeNote": "Unknown assistant/attempt records are not zero-cost calls. Known totals include main, summaries and every later refill. This lane does not have a complete 80-round bill."
+    }
+  },
+  "issues": [],
+  "checksPerformed": [
+    "Read metadata from original consecutive raw event prefixes without resequencing/filtering source records.",
+    "Independently correlate compaction start/summary/end by identity and count all summary usage/output.",
+    "Independently price every received main/summary usage with Python Decimal and caller-supplied periods/prices.",
+    "Cross-check every known call and all phase/purpose aggregates against driver and known-usage proof.",
+    "Count assistant/attempt records with missing usage as unknown; do not infer tokens from partial text.",
+    "Match original turn/start-to-turn/end spans, preserving failed and retried turns separately.",
+    "Check progress, chapter metadata, tool counts and completion/cleanup receipts without reading manuscript/evaluation contents.",
+    "Separately imported current offline accounting module: 52-round prefix passes on both lanes; full 80-round prefix rejects ATTEMPT_USAGE_UNSUPPORTED."
+  ],
+  "privacy": {
+    "modelOrLiveApiCalls": 0,
+    "credentialFilesRead": false,
+    "judgingMaterialsRead": false,
+    "rawNovelOrReasoningPrinted": false,
+    "privateIdsOrPathsIncluded": false
+  },
+  "timing": {
+    "protocolWallClockMs": 14705494,
+    "pairedCompletionWaitEstimateMs": {
+      "3080": 288980,
+      "3082": 4915114
+    },
+    "pairedWaitDefinition": "For every task round sum max(both endedAt) minus this lane endedAt. This is paired-completion waiting only, not controller export/pause or a complete idle decomposition.",
+    "sourceSummedTurnMs": {
+      "3080": 8661439,
+      "3082": 9676982
+    },
+    "sourceSummedTurnMsExcludingIncident53": {
+      "3080": 8312508,
+      "3082": 5129294
+    },
+    "overallSpeedConclusion": "Not supported. Sleep/failed attempt/retry pollutes round 53; do not infer faster plugin performance from the overall cumulative time. Text volumes and tool trajectories also differ."
+  },
+  "comparison": {
+    "knownCostChangePercent": "-13.493137141084937348854415407730302286870666859429449151302755926585424571226826",
+    "notACompleteBillSaving": true,
+    "finalHanChangePercent": "-18.016230273533374413819754143732962912676115178543453058581469915506491064994203",
+    "knownCnyPer10000FinalHanChangePercent": "5.5170592271365848842533636693892345814361601107075242634777765812352746420722500",
+    "interpretation": "Candidate final manuscript is shorter and more chapters fall below the stated Han range; a lower known subtotal is not isolated evidence of context-compression savings or literary quality. Per-10000-Han cost is descriptive project cost, not a literary score."
+  },
+  "completionReceipts": {
+    "postprocessThrough80": true,
+    "offlinePostprocess": true,
+    "auditsPrepared": true,
+    "snapshotCopiesPrepared": true,
+    "presetRemoved": {
+      "3080": true,
+      "3082": true
+    },
+    "defaultModelRestored": {
+      "3080": true,
+      "3082": true
+    },
+    "credentialRestoreReported": true,
+    "cleanupCompleted": true,
+    "credentialValueVerificationReported": true,
+    "temporaryCredentialBackupRemovalReported": true,
+    "liveRestoreNotQueriedByThisAudit": true
+  },
+  "warnings": [
+    "Both lanes have seven assistant/attempt records without usage, all in the sleep incident. Preserve unknown cost; neither 80-round subtotal is a complete bill.",
+    "The current public accounting module correctly refuses both full prefixes with ATTEMPT_USAGE_UNSUPPORTED; only the 52-round attempt-free prefixes receive its complete-accounting result.",
+    "Summary output is explicitly billed, reasoning tokens are not added a second time, and the baseline native summary is included.",
+    "Mechanically present chapters and settled rounds do not by themselves establish literary completeness or quality. Han-length shortfalls and final volume differences must remain visible.",
+    "Overall source time includes the sleep incident; paired wait estimates omit controller/export pauses and cannot be used as pure model speed."
+  ]
+}
