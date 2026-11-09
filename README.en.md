@@ -4,7 +4,7 @@ Budgeted context compression and bounded history recall for DeepSeek Harness. On
 
 This package is developed and versioned independently of Harness. It uses the published Harness APIs and currently targets **DSH 0.2.2-rc.1** on Node 24.9 or later. It does not patch the agent loop or provider serialization.
 
-The latest paired live test does **not** meet the complete-task savings goal: version 0.1.1 preserved 13/13 answer fields in both replications, but averaged 7.27% more input and 83.70% longer active-turn time. Warm followup input fell 60.24%; that partial saving did not offset earlier work. See the [complete 3080/3082 comparison](docs/ab-3080-3082.zh.md), [historical validation](docs/validation.md) and [distribution guide](docs/distribution.md). [中文首页](README.md)。
+Savings depend on the workload; equal output and unchanged performance have **not** been demonstrated. Through 52 paired novel-writing rounds, version 0.1.1 used 69.49% less input and cost an estimated 14.28% less including summaries, but delivered 17.75% fewer prose Han characters and took 29.63% longer. Cost per 10,000 delivered Han characters was about 4.2% higher. See the [long-session report](docs/novel-long-ab.zh.md) and [offline accounting verification](benchmarks/novel/README.zh.md). The earlier short audit preserved 13/13 answer fields in both replications but averaged 7.27% more input and 83.70% longer active-turn time; its [complete comparison](docs/ab-3080-3082.zh.md) remains available. [中文首页](README.md)。
 
 ## Install directly from GitHub
 

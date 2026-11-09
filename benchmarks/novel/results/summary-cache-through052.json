@@ -1,0 +1,935 @@
+{
+  "candidate": {
+    "generationUsage": {
+      "requests": 532,
+      "requestsMissingUsage": 0,
+      "uncachedInputTokens": 688083,
+      "cacheReadTokens": 45901568,
+      "cacheWriteTokens": 0,
+      "outputTokens": 595792,
+      "inputTokens": 46589651,
+      "cacheReadRatio": 0.9852309904618087
+    },
+    "recallCalls": 6,
+    "windows": [
+      {
+        "round": 6,
+        "seq": 308,
+        "usage": {
+          "uncachedInputTokens": 509,
+          "cacheReadTokens": 84736,
+          "cacheWriteTokens": 0,
+          "outputTokens": 4140,
+          "promptTokens": 85245,
+          "cacheReadRatio": 0.9940289753064696
+        },
+        "inheritedReasoningEffort": "max",
+        "precedingMainRequests": [
+          {
+            "seq": 285,
+            "type": "assistant/message",
+            "round": 5,
+            "stage": "planning",
+            "turn": 5,
+            "step": 11,
+            "usage": {
+              "uncachedInputTokens": 258,
+              "cacheReadTokens": 121984,
+              "cacheWriteTokens": 0,
+              "outputTokens": 115,
+              "promptTokens": 122242,
+              "cacheReadRatio": 0.9978894324372966
+            }
+          },
+          {
+            "seq": 291,
+            "type": "assistant/message",
+            "round": 5,
+            "stage": "planning",
+            "turn": 5,
+            "step": 12,
+            "usage": {
+              "uncachedInputTokens": 156,
+              "cacheReadTokens": 122240,
+              "cacheWriteTokens": 0,
+              "outputTokens": 94,
+              "promptTokens": 122396,
+              "cacheReadRatio": 0.9987254485440701
+            }
+          },
+          {
+            "seq": 301,
+            "type": "assistant/message",
+            "round": 6,
+            "stage": "planning",
+            "turn": 6,
+            "step": 1,
+            "usage": {
+              "uncachedInputTokens": 289,
+              "cacheReadTokens": 122368,
+              "cacheWriteTokens": 0,
+              "outputTokens": 13241,
+              "promptTokens": 122657,
+              "cacheReadRatio": 0.997643836063168
+            }
+          }
+        ],
+        "followingMainRequests": [
+          {
+            "seq": 315,
+            "type": "assistant/message",
+            "round": 6,
+            "stage": "planning",
+            "turn": 6,
+            "step": 2,
+            "usage": {
+              "uncachedInputTokens": 55644,
+              "cacheReadTokens": 2304,
+              "cacheWriteTokens": 0,
+              "outputTokens": 446,
+              "promptTokens": 57948,
+              "cacheReadRatio": 0.039759784634499896
+            }
+          },
+          {
+            "seq": 321,
+            "type": "assistant/message",
+            "round": 6,
+            "stage": "planning",
+            "turn": 6,
+            "step": 3,
+            "usage": {
+              "uncachedInputTokens": 196,
+              "cacheReadTokens": 58240,
+              "cacheWriteTokens": 0,
+              "outputTokens": 594,
+              "promptTokens": 58436,
+              "cacheReadRatio": 0.9966459032103497
+            }
+          },
+          {
+            "seq": 327,
+            "type": "assistant/message",
+            "round": 6,
+            "stage": "planning",
+            "turn": 6,
+            "step": 4,
+            "usage": {
+              "uncachedInputTokens": 203,
+              "cacheReadTokens": 58880,
+              "cacheWriteTokens": 0,
+              "outputTokens": 66,
+              "promptTokens": 59083,
+              "cacheReadRatio": 0.9965641555100452
+            }
+          }
+        ]
+      },
+      {
+        "round": 14,
+        "seq": 780,
+        "usage": {
+          "uncachedInputTokens": 490,
+          "cacheReadTokens": 86144,
+          "cacheWriteTokens": 0,
+          "outputTokens": 4462,
+          "promptTokens": 86634,
+          "cacheReadRatio": 0.9943440219775146
+        },
+        "inheritedReasoningEffort": "max",
+        "precedingMainRequests": [
+          {
+            "seq": 757,
+            "type": "assistant/message",
+            "round": 13,
+            "stage": "chapter",
+            "turn": 13,
+            "step": 4,
+            "usage": {
+              "uncachedInputTokens": 178,
+              "cacheReadTokens": 126592,
+              "cacheWriteTokens": 0,
+              "outputTokens": 611,
+              "promptTokens": 126770,
+              "cacheReadRatio": 0.9985958823065394
+            }
+          },
+          {
+            "seq": 763,
+            "type": "assistant/message",
+            "round": 13,
+            "stage": "chapter",
+            "turn": 13,
+            "step": 5,
+            "usage": {
+              "uncachedInputTokens": 202,
+              "cacheReadTokens": 127232,
+              "cacheWriteTokens": 0,
+              "outputTokens": 271,
+              "promptTokens": 127434,
+              "cacheReadRatio": 0.9984148657344194
+            }
+          },
+          {
+            "seq": 773,
+            "type": "assistant/message",
+            "round": 14,
+            "stage": "chapter",
+            "turn": 14,
+            "step": 1,
+            "usage": {
+              "uncachedInputTokens": 278,
+              "cacheReadTokens": 127616,
+              "cacheWriteTokens": 0,
+              "outputTokens": 3148,
+              "promptTokens": 127894,
+              "cacheReadRatio": 0.9978263249253287
+            }
+          }
+        ],
+        "followingMainRequests": [
+          {
+            "seq": 787,
+            "type": "assistant/message",
+            "round": 14,
+            "stage": "chapter",
+            "turn": 14,
+            "step": 2,
+            "usage": {
+              "uncachedInputTokens": 49591,
+              "cacheReadTokens": 2432,
+              "cacheWriteTokens": 0,
+              "outputTokens": 804,
+              "promptTokens": 52023,
+              "cacheReadRatio": 0.046748553524402665
+            }
+          },
+          {
+            "seq": 793,
+            "type": "assistant/message",
+            "round": 14,
+            "stage": "chapter",
+            "turn": 14,
+            "step": 3,
+            "usage": {
+              "uncachedInputTokens": 144,
+              "cacheReadTokens": 52736,
+              "cacheWriteTokens": 0,
+              "outputTokens": 79,
+              "promptTokens": 52880,
+              "cacheReadRatio": 0.9972768532526475
+            }
+          },
+          {
+            "seq": 803,
+            "type": "assistant/message",
+            "round": 15,
+            "stage": "chapter",
+            "turn": 15,
+            "step": 1,
+            "usage": {
+              "uncachedInputTokens": 284,
+              "cacheReadTokens": 52864,
+              "cacheWriteTokens": 0,
+              "outputTokens": 3543,
+              "promptTokens": 53148,
+              "cacheReadRatio": 0.9946564310980658
+            }
+          }
+        ]
+      },
+      {
+        "round": 21,
+        "seq": 1148,
+        "usage": {
+          "uncachedInputTokens": 537,
+          "cacheReadTokens": 91648,
+          "cacheWriteTokens": 0,
+          "outputTokens": 4189,
+          "promptTokens": 92185,
+          "cacheReadRatio": 0.9941747572815534
+        },
+        "inheritedReasoningEffort": "max",
+        "precedingMainRequests": [
+          {
+            "seq": 1125,
+            "type": "assistant/message",
+            "round": 20,
+            "stage": "review",
+            "turn": 20,
+            "step": 11,
+            "usage": {
+              "uncachedInputTokens": 158,
+              "cacheReadTokens": 126336,
+              "cacheWriteTokens": 0,
+              "outputTokens": 616,
+              "promptTokens": 126494,
+              "cacheReadRatio": 0.9987509288978134
+            }
+          },
+          {
+            "seq": 1131,
+            "type": "assistant/message",
+            "round": 20,
+            "stage": "review",
+            "turn": 20,
+            "step": 12,
+            "usage": {
+              "uncachedInputTokens": 187,
+              "cacheReadTokens": 126976,
+              "cacheWriteTokens": 0,
+              "outputTokens": 100,
+              "promptTokens": 127163,
+              "cacheReadRatio": 0.9985294464584824
+            }
+          },
+          {
+            "seq": 1141,
+            "type": "assistant/message",
+            "round": 21,
+            "stage": "chapter",
+            "turn": 21,
+            "step": 1,
+            "usage": {
+              "uncachedInputTokens": 220,
+              "cacheReadTokens": 127232,
+              "cacheWriteTokens": 0,
+              "outputTokens": 5209,
+              "promptTokens": 127452,
+              "cacheReadRatio": 0.9982738599629665
+            }
+          }
+        ],
+        "followingMainRequests": [
+          {
+            "seq": 1155,
+            "type": "assistant/message",
+            "round": 21,
+            "stage": "chapter",
+            "turn": 21,
+            "step": 2,
+            "usage": {
+              "uncachedInputTokens": 45386,
+              "cacheReadTokens": 2432,
+              "cacheWriteTokens": 0,
+              "outputTokens": 768,
+              "promptTokens": 47818,
+              "cacheReadRatio": 0.050859508971517
+            }
+          },
+          {
+            "seq": 1161,
+            "type": "assistant/message",
+            "round": 21,
+            "stage": "chapter",
+            "turn": 21,
+            "step": 3,
+            "usage": {
+              "uncachedInputTokens": 241,
+              "cacheReadTokens": 48384,
+              "cacheWriteTokens": 0,
+              "outputTokens": 676,
+              "promptTokens": 48625,
+              "cacheReadRatio": 0.9950437017994859
+            }
+          },
+          {
+            "seq": 1167,
+            "type": "assistant/message",
+            "round": 21,
+            "stage": "chapter",
+            "turn": 21,
+            "step": 4,
+            "usage": {
+              "uncachedInputTokens": 202,
+              "cacheReadTokens": 49152,
+              "cacheWriteTokens": 0,
+              "outputTokens": 106,
+              "promptTokens": 49354,
+              "cacheReadRatio": 0.9959071199902744
+            }
+          }
+        ]
+      },
+      {
+        "round": 29,
+        "seq": 1476,
+        "usage": {
+          "uncachedInputTokens": 452,
+          "cacheReadTokens": 90240,
+          "cacheWriteTokens": 0,
+          "outputTokens": 4935,
+          "promptTokens": 90692,
+          "cacheReadRatio": 0.995016098443082
+        },
+        "inheritedReasoningEffort": "max",
+        "precedingMainRequests": [
+          {
+            "seq": 1457,
+            "type": "assistant/message",
+            "round": 29,
+            "stage": "review",
+            "turn": 29,
+            "step": 1,
+            "usage": {
+              "uncachedInputTokens": 374,
+              "cacheReadTokens": 122112,
+              "cacheWriteTokens": 0,
+              "outputTokens": 96,
+              "promptTokens": 122486,
+              "cacheReadRatio": 0.9969465898143461
+            }
+          },
+          {
+            "seq": 1463,
+            "type": "assistant/message",
+            "round": 29,
+            "stage": "review",
+            "turn": 29,
+            "step": 2,
+            "usage": {
+              "uncachedInputTokens": 2233,
+              "cacheReadTokens": 122496,
+              "cacheWriteTokens": 0,
+              "outputTokens": 1221,
+              "promptTokens": 124729,
+              "cacheReadRatio": 0.9820971867007673
+            }
+          },
+          {
+            "seq": 1469,
+            "type": "assistant/message",
+            "round": 29,
+            "stage": "review",
+            "turn": 29,
+            "step": 3,
+            "usage": {
+              "uncachedInputTokens": 2154,
+              "cacheReadTokens": 125824,
+              "cacheWriteTokens": 0,
+              "outputTokens": 4825,
+              "promptTokens": 127978,
+              "cacheReadRatio": 0.9831689821688102
+            }
+          }
+        ],
+        "followingMainRequests": [
+          {
+            "seq": 1483,
+            "type": "assistant/message",
+            "round": 29,
+            "stage": "review",
+            "turn": 29,
+            "step": 4,
+            "usage": {
+              "uncachedInputTokens": 48358,
+              "cacheReadTokens": 2432,
+              "cacheWriteTokens": 0,
+              "outputTokens": 1418,
+              "promptTokens": 50790,
+              "cacheReadRatio": 0.04788344162236661
+            }
+          },
+          {
+            "seq": 1489,
+            "type": "assistant/message",
+            "round": 29,
+            "stage": "review",
+            "turn": 29,
+            "step": 5,
+            "usage": {
+              "uncachedInputTokens": 1193,
+              "cacheReadTokens": 51072,
+              "cacheWriteTokens": 0,
+              "outputTokens": 652,
+              "promptTokens": 52265,
+              "cacheReadRatio": 0.9771740170286042
+            }
+          },
+          {
+            "seq": 1495,
+            "type": "assistant/message",
+            "round": 29,
+            "stage": "review",
+            "turn": 29,
+            "step": 6,
+            "usage": {
+              "uncachedInputTokens": 234,
+              "cacheReadTokens": 52736,
+              "cacheWriteTokens": 0,
+              "outputTokens": 118,
+              "promptTokens": 52970,
+              "cacheReadRatio": 0.9955824051349821
+            }
+          }
+        ]
+      },
+      {
+        "round": 34,
+        "seq": 1948,
+        "usage": {
+          "uncachedInputTokens": 513,
+          "cacheReadTokens": 89984,
+          "cacheWriteTokens": 0,
+          "outputTokens": 4067,
+          "promptTokens": 90497,
+          "cacheReadRatio": 0.994331303800126
+        },
+        "inheritedReasoningEffort": "max",
+        "precedingMainRequests": [
+          {
+            "seq": 1925,
+            "type": "assistant/message",
+            "round": 33,
+            "stage": "chapter",
+            "turn": 33,
+            "step": 11,
+            "usage": {
+              "uncachedInputTokens": 165,
+              "cacheReadTokens": 120448,
+              "cacheWriteTokens": 0,
+              "outputTokens": 135,
+              "promptTokens": 120613,
+              "cacheReadRatio": 0.998631988259972
+            }
+          },
+          {
+            "seq": 1935,
+            "type": "assistant/message",
+            "round": 34,
+            "stage": "chapter",
+            "turn": 34,
+            "step": 1,
+            "usage": {
+              "uncachedInputTokens": 233,
+              "cacheReadTokens": 120704,
+              "cacheWriteTokens": 0,
+              "outputTokens": 609,
+              "promptTokens": 120937,
+              "cacheReadRatio": 0.9980733770475537
+            }
+          },
+          {
+            "seq": 1941,
+            "type": "assistant/message",
+            "round": 34,
+            "stage": "chapter",
+            "turn": 34,
+            "step": 2,
+            "usage": {
+              "uncachedInputTokens": 4381,
+              "cacheReadTokens": 121472,
+              "cacheWriteTokens": 0,
+              "outputTokens": 7785,
+              "promptTokens": 125853,
+              "cacheReadRatio": 0.9651895465344489
+            }
+          }
+        ],
+        "followingMainRequests": [
+          {
+            "seq": 1955,
+            "type": "assistant/message",
+            "round": 34,
+            "stage": "chapter",
+            "turn": 34,
+            "step": 3,
+            "usage": {
+              "uncachedInputTokens": 47803,
+              "cacheReadTokens": 2560,
+              "cacheWriteTokens": 0,
+              "outputTokens": 1559,
+              "promptTokens": 50363,
+              "cacheReadRatio": 0.05083096717828565
+            }
+          },
+          {
+            "seq": 1961,
+            "type": "assistant/message",
+            "round": 34,
+            "stage": "chapter",
+            "turn": 34,
+            "step": 4,
+            "usage": {
+              "uncachedInputTokens": 249,
+              "cacheReadTokens": 51712,
+              "cacheWriteTokens": 0,
+              "outputTokens": 596,
+              "promptTokens": 51961,
+              "cacheReadRatio": 0.9952079444198534
+            }
+          },
+          {
+            "seq": 1967,
+            "type": "assistant/message",
+            "round": 34,
+            "stage": "chapter",
+            "turn": 34,
+            "step": 5,
+            "usage": {
+              "uncachedInputTokens": 244,
+              "cacheReadTokens": 52352,
+              "cacheWriteTokens": 0,
+              "outputTokens": 830,
+              "promptTokens": 52596,
+              "cacheReadRatio": 0.9953608639440261
+            }
+          }
+        ]
+      },
+      {
+        "round": 41,
+        "seq": 2362,
+        "usage": {
+          "uncachedInputTokens": 512,
+          "cacheReadTokens": 91264,
+          "cacheWriteTokens": 0,
+          "outputTokens": 3894,
+          "promptTokens": 91776,
+          "cacheReadRatio": 0.9944211994421199
+        },
+        "inheritedReasoningEffort": "max",
+        "precedingMainRequests": [
+          {
+            "seq": 2343,
+            "type": "assistant/message",
+            "round": 41,
+            "stage": "review",
+            "turn": 41,
+            "step": 2,
+            "usage": {
+              "uncachedInputTokens": 2755,
+              "cacheReadTokens": 124928,
+              "cacheWriteTokens": 0,
+              "outputTokens": 42,
+              "promptTokens": 127683,
+              "cacheReadRatio": 0.9784231260230415
+            }
+          },
+          {
+            "seq": 2349,
+            "type": "assistant/message",
+            "round": 41,
+            "stage": "review",
+            "turn": 41,
+            "step": 3,
+            "usage": {
+              "uncachedInputTokens": 2090,
+              "cacheReadTokens": 127616,
+              "cacheWriteTokens": 0,
+              "outputTokens": 229,
+              "promptTokens": 129706,
+              "cacheReadRatio": 0.983886635930489
+            }
+          },
+          {
+            "seq": 2355,
+            "type": "assistant/message",
+            "round": 41,
+            "stage": "review",
+            "turn": 41,
+            "step": 4,
+            "usage": {
+              "uncachedInputTokens": 2691,
+              "cacheReadTokens": 129920,
+              "cacheWriteTokens": 0,
+              "outputTokens": 321,
+              "promptTokens": 132611,
+              "cacheReadRatio": 0.9797075657373823
+            }
+          }
+        ],
+        "followingMainRequests": [
+          {
+            "seq": 2369,
+            "type": "assistant/message",
+            "round": 41,
+            "stage": "review",
+            "turn": 41,
+            "step": 5,
+            "usage": {
+              "uncachedInputTokens": 47935,
+              "cacheReadTokens": 2432,
+              "cacheWriteTokens": 0,
+              "outputTokens": 42,
+              "promptTokens": 50367,
+              "cacheReadRatio": 0.048285583814799374
+            }
+          },
+          {
+            "seq": 2375,
+            "type": "assistant/message",
+            "round": 41,
+            "stage": "review",
+            "turn": 41,
+            "step": 6,
+            "usage": {
+              "uncachedInputTokens": 2335,
+              "cacheReadTokens": 50304,
+              "cacheWriteTokens": 0,
+              "outputTokens": 497,
+              "promptTokens": 52639,
+              "cacheReadRatio": 0.9556412545831038
+            }
+          },
+          {
+            "seq": 2381,
+            "type": "assistant/message",
+            "round": 41,
+            "stage": "review",
+            "turn": 41,
+            "step": 7,
+            "usage": {
+              "uncachedInputTokens": 2321,
+              "cacheReadTokens": 53120,
+              "cacheWriteTokens": 0,
+              "outputTokens": 3645,
+              "promptTokens": 55441,
+              "cacheReadRatio": 0.9581356757634242
+            }
+          }
+        ]
+      },
+      {
+        "round": 45,
+        "seq": 2800,
+        "usage": {
+          "uncachedInputTokens": 536,
+          "cacheReadTokens": 85888,
+          "cacheWriteTokens": 0,
+          "outputTokens": 5816,
+          "promptTokens": 86424,
+          "cacheReadRatio": 0.9937980190687772
+        },
+        "inheritedReasoningEffort": "max",
+        "precedingMainRequests": [
+          {
+            "seq": 2777,
+            "type": "assistant/message",
+            "round": 44,
+            "stage": "review",
+            "turn": 44,
+            "step": 15,
+            "usage": {
+              "uncachedInputTokens": 241,
+              "cacheReadTokens": 125312,
+              "cacheWriteTokens": 0,
+              "outputTokens": 1009,
+              "promptTokens": 125553,
+              "cacheReadRatio": 0.9980804919038175
+            }
+          },
+          {
+            "seq": 2783,
+            "type": "assistant/message",
+            "round": 44,
+            "stage": "review",
+            "turn": 44,
+            "step": 16,
+            "usage": {
+              "uncachedInputTokens": 151,
+              "cacheReadTokens": 126464,
+              "cacheWriteTokens": 0,
+              "outputTokens": 101,
+              "promptTokens": 126615,
+              "cacheReadRatio": 0.9988074082849583
+            }
+          },
+          {
+            "seq": 2793,
+            "type": "assistant/message",
+            "round": 45,
+            "stage": "chapter",
+            "turn": 45,
+            "step": 1,
+            "usage": {
+              "uncachedInputTokens": 313,
+              "cacheReadTokens": 126592,
+              "cacheWriteTokens": 0,
+              "outputTokens": 4512,
+              "promptTokens": 126905,
+              "cacheReadRatio": 0.9975335881170955
+            }
+          }
+        ],
+        "followingMainRequests": [
+          {
+            "seq": 2807,
+            "type": "assistant/message",
+            "round": 45,
+            "stage": "chapter",
+            "turn": 45,
+            "step": 2,
+            "usage": {
+              "uncachedInputTokens": 51532,
+              "cacheReadTokens": 2432,
+              "cacheWriteTokens": 0,
+              "outputTokens": 386,
+              "promptTokens": 53964,
+              "cacheReadRatio": 0.04506708175820918
+            }
+          },
+          {
+            "seq": 2813,
+            "type": "assistant/message",
+            "round": 45,
+            "stage": "chapter",
+            "turn": 45,
+            "step": 3,
+            "usage": {
+              "uncachedInputTokens": 1225,
+              "cacheReadTokens": 54272,
+              "cacheWriteTokens": 0,
+              "outputTokens": 173,
+              "promptTokens": 55497,
+              "cacheReadRatio": 0.9779267347784565
+            }
+          },
+          {
+            "seq": 2819,
+            "type": "assistant/message",
+            "round": 45,
+            "stage": "chapter",
+            "turn": 45,
+            "step": 4,
+            "usage": {
+              "uncachedInputTokens": 157,
+              "cacheReadTokens": 55552,
+              "cacheWriteTokens": 0,
+              "outputTokens": 623,
+              "promptTokens": 55709,
+              "cacheReadRatio": 0.9971817839128327
+            }
+          }
+        ]
+      },
+      {
+        "round": 51,
+        "seq": 3288,
+        "usage": {
+          "uncachedInputTokens": 439,
+          "cacheReadTokens": 91648,
+          "cacheWriteTokens": 0,
+          "outputTokens": 4437,
+          "promptTokens": 92087,
+          "cacheReadRatio": 0.9952327690119126
+        },
+        "inheritedReasoningEffort": "max",
+        "precedingMainRequests": [
+          {
+            "seq": 3265,
+            "type": "assistant/message",
+            "round": 50,
+            "stage": "chapter",
+            "turn": 50,
+            "step": 10,
+            "usage": {
+              "uncachedInputTokens": 173,
+              "cacheReadTokens": 129920,
+              "cacheWriteTokens": 0,
+              "outputTokens": 177,
+              "promptTokens": 130093,
+              "cacheReadRatio": 0.9986701821004973
+            }
+          },
+          {
+            "seq": 3271,
+            "type": "assistant/message",
+            "round": 50,
+            "stage": "chapter",
+            "turn": 50,
+            "step": 11,
+            "usage": {
+              "uncachedInputTokens": 261,
+              "cacheReadTokens": 130048,
+              "cacheWriteTokens": 0,
+              "outputTokens": 91,
+              "promptTokens": 130309,
+              "cacheReadRatio": 0.9979970685063964
+            }
+          },
+          {
+            "seq": 3281,
+            "type": "assistant/message",
+            "round": 51,
+            "stage": "chapter",
+            "turn": 51,
+            "step": 1,
+            "usage": {
+              "uncachedInputTokens": 285,
+              "cacheReadTokens": 130304,
+              "cacheWriteTokens": 0,
+              "outputTokens": 3474,
+              "promptTokens": 130589,
+              "cacheReadRatio": 0.9978175803475025
+            }
+          }
+        ],
+        "followingMainRequests": [
+          {
+            "seq": 3295,
+            "type": "assistant/message",
+            "round": 51,
+            "stage": "chapter",
+            "turn": 51,
+            "step": 2,
+            "usage": {
+              "uncachedInputTokens": 47136,
+              "cacheReadTokens": 2432,
+              "cacheWriteTokens": 0,
+              "outputTokens": 1422,
+              "promptTokens": 49568,
+              "cacheReadRatio": 0.04906391220142027
+            }
+          },
+          {
+            "seq": 3301,
+            "type": "assistant/message",
+            "round": 51,
+            "stage": "chapter",
+            "turn": 51,
+            "step": 3,
+            "usage": {
+              "uncachedInputTokens": 213,
+              "cacheReadTokens": 50816,
+              "cacheWriteTokens": 0,
+              "outputTokens": 119,
+              "promptTokens": 51029,
+              "cacheReadRatio": 0.9958259029179486
+            }
+          },
+          {
+            "seq": 3307,
+            "type": "assistant/message",
+            "round": 51,
+            "stage": "chapter",
+            "turn": 51,
+            "step": 4,
+            "usage": {
+              "uncachedInputTokens": 243,
+              "cacheReadTokens": 50944,
+              "cacheWriteTokens": 0,
+              "outputTokens": 117,
+              "promptTokens": 51187,
+              "cacheReadRatio": 0.9952527008810831
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "baseline": {
+    "generationUsage": {
+      "requests": 505,
+      "requestsMissingUsage": 0,
+      "uncachedInputTokens": 228743,
+      "cacheReadTokens": 152489472,
+      "cacheWriteTokens": 0,
+      "outputTokens": 430651,
+      "inputTokens": 152718215,
+      "cacheReadRatio": 0.9985021891461997
+    },
+    "recallCalls": 0,
+    "windows": []
+  }
+}

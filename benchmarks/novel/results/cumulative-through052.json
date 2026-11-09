@@ -1,0 +1,186 @@
+{
+  "currency": "CNY",
+  "scope": "Cumulative paired checkpoints preceding the first unknown-usage transport attempt; includes summary input/output and subsequent refill",
+  "points": [
+    {
+      "throughRound": 10,
+      "feeStatus": "complete-recorded-usage estimate",
+      "lanes": {
+        "candidate": {
+          "chapters": 2,
+          "proseHan": 3713,
+          "inputTokens": 8120757,
+          "uncachedInputTokens": 138677,
+          "cacheReadTokens": 7982080,
+          "outputTokens": 163094,
+          "summaryCalls": 1,
+          "calls": 102,
+          "elapsedMs": 1337762,
+          "estimatedCny": "1.90138920"
+        },
+        "baseline": {
+          "chapters": 2,
+          "proseHan": 4829,
+          "inputTokens": 10486545,
+          "uncachedInputTokens": 55953,
+          "cacheReadTokens": 10430592,
+          "outputTokens": 123698,
+          "summaryCalls": 0,
+          "calls": 115,
+          "elapsedMs": 1042988,
+          "estimatedCny": "1.51871368"
+        }
+      }
+    },
+    {
+      "throughRound": 20,
+      "feeStatus": "complete-recorded-usage estimate",
+      "lanes": {
+        "candidate": {
+          "chapters": 8,
+          "proseHan": 13152,
+          "inputTokens": 14991637,
+          "uncachedInputTokens": 226709,
+          "cacheReadTokens": 14764928,
+          "outputTokens": 234171,
+          "summaryCalls": 2,
+          "calls": 171,
+          "elapsedMs": 1951147,
+          "estimatedCny": "2.42503724"
+        },
+        "baseline": {
+          "chapters": 8,
+          "proseHan": 17576,
+          "inputTokens": 34160240,
+          "uncachedInputTokens": 105712,
+          "cacheReadTokens": 34054528,
+          "outputTokens": 205395,
+          "summaryCalls": 0,
+          "calls": 225,
+          "elapsedMs": 1785543,
+          "estimatedCny": "2.38874144"
+        }
+      }
+    },
+    {
+      "throughRound": 30,
+      "feeStatus": "complete-recorded-usage estimate",
+      "lanes": {
+        "candidate": {
+          "chapters": 16,
+          "proseHan": 26682,
+          "inputTokens": 20775702,
+          "uncachedInputTokens": 361750,
+          "cacheReadTokens": 20413952,
+          "outputTokens": 330550,
+          "summaryCalls": 4,
+          "calls": 244,
+          "elapsedMs": 2739023,
+          "estimatedCny": "3.05857472"
+        },
+        "baseline": {
+          "chapters": 16,
+          "proseHan": 33589,
+          "inputTokens": 65456027,
+          "uncachedInputTokens": 154651,
+          "cacheReadTokens": 65301376,
+          "outputTokens": 285416,
+          "summaryCalls": 0,
+          "calls": 321,
+          "elapsedMs": 2470675,
+          "estimatedCny": "3.38270140"
+        }
+      }
+    },
+    {
+      "throughRound": 40,
+      "feeStatus": "complete-recorded-usage estimate",
+      "lanes": {
+        "candidate": {
+          "chapters": 24,
+          "proseHan": 39838,
+          "inputTokens": 30818434,
+          "uncachedInputTokens": 461186,
+          "cacheReadTokens": 30357248,
+          "outputTokens": 441711,
+          "summaryCalls": 5,
+          "calls": 356,
+          "elapsedMs": 3658750,
+          "estimatedCny": "3.80152064"
+        },
+        "baseline": {
+          "chapters": 24,
+          "proseHan": 50058,
+          "inputTokens": 104806846,
+          "uncachedInputTokens": 194238,
+          "cacheReadTokens": 104612608,
+          "outputTokens": 355565,
+          "summaryCalls": 0,
+          "calls": 413,
+          "elapsedMs": 3118180,
+          "estimatedCny": "4.48910904"
+        }
+      }
+    },
+    {
+      "throughRound": 50,
+      "feeStatus": "complete-recorded-usage estimate",
+      "lanes": {
+        "candidate": {
+          "chapters": 30,
+          "proseHan": 50972,
+          "inputTokens": 44928560,
+          "uncachedInputTokens": 633008,
+          "cacheReadTokens": 44295552,
+          "outputTokens": 570263,
+          "summaryCalls": 7,
+          "calls": 506,
+          "elapsedMs": 4695832,
+          "estimatedCny": "4.76631672"
+        },
+        "baseline": {
+          "chapters": 30,
+          "proseHan": 62393,
+          "inputTokens": 146505218,
+          "uncachedInputTokens": 226306,
+          "cacheReadTokens": 146278912,
+          "outputTokens": 420041,
+          "summaryCalls": 0,
+          "calls": 494,
+          "elapsedMs": 3684289,
+          "estimatedCny": "5.61240712"
+        }
+      }
+    },
+    {
+      "throughRound": 52,
+      "feeStatus": "complete-recorded-usage estimate",
+      "lanes": {
+        "candidate": {
+          "chapters": 32,
+          "proseHan": 54573,
+          "inputTokens": 46589651,
+          "uncachedInputTokens": 688083,
+          "cacheReadTokens": 45901568,
+          "outputTokens": 595792,
+          "summaryCalls": 8,
+          "calls": 532,
+          "elapsedMs": 4913267,
+          "estimatedCny": "4.95562804"
+        },
+        "baseline": {
+          "chapters": 32,
+          "proseHan": 66350,
+          "inputTokens": 152718215,
+          "uncachedInputTokens": 228743,
+          "cacheReadTokens": 152489472,
+          "outputTokens": 430651,
+          "summaryCalls": 0,
+          "calls": 505,
+          "elapsedMs": 3790236,
+          "estimatedCny": "5.78149532"
+        }
+      }
+    }
+  ]
+}
